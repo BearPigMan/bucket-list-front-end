@@ -10,7 +10,7 @@ const onSignUp = function(e){
  let credentials = data;
  api.signUp(data)
   // promise to sign-in automatically after sign-up
-  .then(function(data) {
+  .then(function() {
     return api.signIn(credentials);
   })
   .then(ui.signInSuccess)
