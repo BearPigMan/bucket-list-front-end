@@ -7,13 +7,15 @@ const ui = require('./ui.js');
 const onSignUp = function(e){
  e.preventDefault();
  let data = getFormFields(this);
- // let credentials = data;
+ let credentials = data;
  api.signUp(data)
-  // to eventually do sign-in on sign-up
-  // .then(api.signIn(credentials))
+  // promise to sign-in automatically after sign-up
+  .then(function(data) {
+    return api.signIn(credentials);
+  })
   .then(ui.signInSuccess)
   .catch(ui.failure);
-  // $('#sign-up-modal').modal('hide');
+  $('#sign-up-modal').modal('hide');
 };
 
 const onSignIn = function(e){
