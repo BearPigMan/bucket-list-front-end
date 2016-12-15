@@ -22,7 +22,9 @@ const onPostGoal = (e) => {
 const onPatchGoal = (e) => {
   e.preventDefault();
   let data = getFormFields(e.target);
-  api.patchGoal()
+  // pull id data attribute from form
+  let id = $(e.target).data('id');
+  api.patchGoal(id, data)
     .then(ui.patchGoalSuccess)
     .catch(ui.failure);
 };
@@ -37,7 +39,7 @@ const onDeleteGoal = (e) => {
 const addHandlers = () => {
   $('#get-goal-form').on('submit', onGetGoals);
   $('#post-goal-form').on('submit', onPostGoal);
-
+  $('#content').on('submit', '.patch-goal-form', onPatchGoal);
 };
 
 module.exports = {
