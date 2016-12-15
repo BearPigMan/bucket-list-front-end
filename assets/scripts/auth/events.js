@@ -8,7 +8,7 @@ const onSignUp = function(e){
  e.preventDefault();
  let data = getFormFields(this);
  // let credentials = data;
- api.signUp(data).then(ui.success)
+ api.signUp(data)
   // to eventually do sign-in on sign-up
   // .then(api.signIn(credentials))
   .then(ui.signInSuccess)
