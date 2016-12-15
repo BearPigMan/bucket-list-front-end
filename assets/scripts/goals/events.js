@@ -1,5 +1,6 @@
 'use strict';
 
+const getFormFields = require('../../../lib/get-form-fields');
 const api = require('./api.js');
 const ui = require('./ui.js');
 
@@ -12,13 +13,15 @@ const onGetGoals = (e) => {
 
 const onPostGoal = (e) => {
   e.preventDefault();
-  api.postGoal()
+  let data = getFormFields(e.target);
+  api.postGoal(data)
     .then(ui.postGoalSuccess)
     .catch(ui.failure);
 };
 
 const onPatchGoal = (e) => {
   e.preventDefault();
+  let data = getFormFields(e.target);
   api.patchGoal()
     .then(ui.patchGoalSuccess)
     .catch(ui.failure);

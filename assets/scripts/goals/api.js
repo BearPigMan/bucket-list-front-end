@@ -1,6 +1,7 @@
 'use strict';
 
 const app = require('../app.js');
+const store = require('../store.js');
 
 const getGoals = function() {
   return $.ajax({
@@ -14,7 +15,7 @@ const postGoal = function(data) {
     url: app.host + 'goals/',
     method: 'POST',
     headers: {
-        Authorization: 'Token token=' + app.user.token,
+        Authorization: 'Token token=' + store.user.token,
       },
       data,
   });
@@ -25,7 +26,7 @@ const deleteGoal = function(id) {
     method: 'DELETE',
     url: app.host + 'goals/' + id,
     headers: {
-      Authorization: 'Token token=' + app.user.token,
+      Authorization: 'Token token=' + store.user.token,
     },
   });
 };
@@ -35,7 +36,7 @@ const patchGoal = function (id, data) {
     method: 'PATCH',
     url: app.host + 'goals/' + id,
     headers: {
-      Authorization: 'Token token=' + app.user.token,
+      Authorization: 'Token token=' + store.user.token,
     },
     data: data,
   });
