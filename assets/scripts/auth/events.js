@@ -15,7 +15,6 @@ const onSignUp = function(e){
   })
   .then(ui.signInSuccess)
   .catch(ui.failure);
-  $('#sign-up-modal').modal('hide');
 };
 
 const onSignIn = function(e){
