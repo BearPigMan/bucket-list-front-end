@@ -22,7 +22,7 @@ const signIn = function(data) {
 
 const changePassword = function(data) {
     return $.ajax({
-      url: app.host + 'change-password/' + store.user.id,
+      url: app.host + 'change-password/' + store.user._id,
       method: 'PATCH',
       data,
       headers: {
@@ -33,7 +33,7 @@ const changePassword = function(data) {
 
 const signOut = function() {
   return $.ajax({
-  url: app.host + 'sign-out/' + store.user.id,
+  url: app.host + 'sign-out/' + store.user._id,
   method: 'DELETE',
   headers: {
     Authorization: 'Token token=' + store.user.token,

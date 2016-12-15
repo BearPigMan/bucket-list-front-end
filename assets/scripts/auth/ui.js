@@ -18,6 +18,10 @@ const signInSuccess = (data) => {
     $('.change-pw-btn').show();
     $('#sign-out-btn').show();
     $('#sign-in-modal').modal('hide');
+    $('#sign-up-modal').modal('hide');
+    // clear modal fields for better security
+    $('.sign-in-form input').val('');
+    $('.sign-up-form input').val('');
     success(data);
 };
 
@@ -33,6 +37,7 @@ const signInFailure = (error) => {
 
 const changePasswordSuccess = () => {
   $('#change-password-modal').modal('hide');
+  $('.change-password-form input').val('');
 };
 
 const changePasswordFailure = (error) => {
