@@ -31,7 +31,8 @@ const onPatchGoal = (e) => {
 
 const onDeleteGoal = (e) => {
   e.preventDefault();
-  api.deleteGoal()
+  let id = $(e.target).data('id');
+  api.deleteGoal(id)
     .then(ui.deleteGoalSuccess)
     .catch(ui.failure);
 };
@@ -40,6 +41,8 @@ const addHandlers = () => {
   $('#get-goal-form').on('submit', onGetGoals);
   $('#post-goal-form').on('submit', onPostGoal);
   $('#content').on('submit', '.patch-goal-form', onPatchGoal);
+  $('#content').on('click', '.delete-goal', onDeleteGoal);
+
 };
 
 module.exports = {
