@@ -4,14 +4,14 @@ const app = require('../app.js');
 
 const getGoals = function() {
   return $.ajax({
-    url: app.host + '/goals',
+    url: app.host + 'goals',
     method:'GET',
   });
 };
 
 const postGoal = function(data) {
   return $.ajax({
-    url: app.host + '/goals/',
+    url: app.host + 'goals/',
     method: 'POST',
     headers: {
         Authorization: 'Token token=' + app.user.token,
@@ -23,7 +23,7 @@ const postGoal = function(data) {
 const deleteGoal = function(id) {
   return $.ajax({
     method: 'DELETE',
-    url: app.host + '/goals/' + id,
+    url: app.host + 'goals/' + id,
     headers: {
       Authorization: 'Token token=' + app.user.token,
     },
@@ -33,7 +33,7 @@ const deleteGoal = function(id) {
 const patchGoal = function (id, data) {
   return $.ajax({
     method: 'PATCH',
-    url: app.host + '/goals/' + id,
+    url: app.host + 'goals/' + id,
     headers: {
       Authorization: 'Token token=' + app.user.token,
     },

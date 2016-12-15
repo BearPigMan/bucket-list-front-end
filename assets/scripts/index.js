@@ -8,7 +8,9 @@ $(() => {
 });
 
 const authEvents = require('./auth/events.js');
+const goalEvents = require('./goals/events.js');
 
 $(()=>{
   authEvents.addAuthHandlers();
+  goalEvents.addHandlers();
 });
