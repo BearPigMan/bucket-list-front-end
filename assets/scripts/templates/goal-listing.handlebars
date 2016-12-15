@@ -1,0 +1,25 @@
+{{#each goals as |goal|}}
+  <h1> <small>Title: {{goal.title}}
+  </small></h1>
+  <div>
+    {{#if goal.description}}
+      {{goal.description}}
+    {{else}}
+      No description for this goal.
+    {{/if}}
+
+  <div class='goal-display'>{{goal.id}}</div>
+    <div class='patch-goal-container'>
+      <form id="patch-goal-form">
+        <input type="submit" class="patch-goal" data-id={{goal.id}} name="patch-btn" value="Click here to Patch this goal">
+          Update Goal {{goal.id}}
+      </form>
+    </div>
+
+    <div class='delete-goal-container'>
+      <form id="delete-goal-form">
+        <input type="submit" class="delete-goal" data-id={{goal.id}} name="delete-btn" value="Click here to Delete this goal">
+          Delete Goal {{goal.id}}
+      </form>
+    </div>
+{{/each}}

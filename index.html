@@ -3,19 +3,21 @@
     <head>
       <title>Example</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
-
       <!-- Do not add `link` tags unless you know what you are doing -->
       <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
-
       <!-- Do not add `script` tags unless you know what you are doing -->
       <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
+
+    <!-- Body Starts Here -->
     <body class="container-fluid">
+
+      <!-- Nav Starts Here -->
       <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container">
           <div class="navbar-header">
-            <a class="navbar-brand" href='#'>Bucket List</a>
+            <a class="navbar-brand" href='#'>Bucket List - By Team BearPigMan</a>
           </div>
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right" id="navbar-right-side">
@@ -23,10 +25,10 @@
                 <a href="#" class="auth-dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sign up/Sign in <span class="caret"></span></a>
                 <ul class="dropdown-menu">
                   <!-- launch modal -->
-                  <li><a ><div class="dropdown-item" data-toggle="modal" data-target="#sign-up-modal">
+                  <li><a ><div class="dropdown-item sign-up-btn" data-toggle="modal" data-target="#sign-up-modal">
                     Sign up!
                   </div></a></li>
-                  <li><a ><div class="dropdown-item" data-toggle="modal" data-target="#sign-in-modal">
+                  <li><a ><div class="dropdown-item sign-in-btn" data-toggle="modal" data-target="#sign-in-modal">
                     Sign in!
                   </div></a></li>
                   <li><a ><div class="dropdown-item change-pw-btn hidden" data-toggle="modal" data-target="#change-password-modal">
@@ -39,44 +41,29 @@
           </div>
         </div>
       </nav>
+      <!-- Nav Ends Here -->
+      <!-- Main Body Section Starts Here -->
       <main>
-        <div class="auth">
-          <form id="sign-up-form">
-            <div>Sign Up</div>
-              <input type="text" name="credentials[email]" value="" placeholder="Email">
-              <input type="password" name="credentials[password]" value="" placeholder="Password">
-              <input type="password" name="credentials[password_confirmation]" value="" placeholder="Confirm Password">
-              <input type="submit" name="submit" value="Sign up!">
-          </form>
-          <form id="sign-in-form">
-            <div>Sign In</div>
-            <input id="sign-in-email"type="text" name="credentials[email]" value="" placeholder="Email">
-            <input id="sign-in-password" type="password" name="credentials[password]" value="" placeholder="Password">
-            <input type="submit" name="submit" value="Sign in!">
-          </form>
-          <form id="sign-out-form">
-              <div>Sign Out</div>
-              <input type="submit" name="submit" value="Sign out!">
-          </form>
-          <form id="change-password-form">
-              <div>Change Password</div>
-              <input type="password" name="passwords[old]" value="" placeholder="Old Password">
-              <input type="password" name="passwords[new]" value="" placeholder="New Password">
-              <input type="submit" name="submit" value="Change Password">
-          </form>
-        </div>
         <h1>Bucket List</h1>
-        <div class="goal-container">
-          <div class="goal-title">
-          </div>
-          <div class="goal-description">
-          </div>
-          <form id="create-form">
-            <div class="create-container">
-            </div>
+        <div class='get-goal-container'>
+          <form id="get-goal-form">
+            <input type="submit" class="get-goal-btn btn btn-default" name="get-btn" value="Click here to Get goals!">
           </form>
         </div>
 
+        <div class="post-goal-container">
+          <form id="post-goal-form">
+            <input type="text" name="goals[goal]" placeholder="Enter your goal!"><br>
+            <input type="submit" class="post-goal-btn" name="post-btn" value="Click here to Post your goal!"><br>
+          </form>
+        </div>
+
+<!-- This is where handle bars is going to render each goal when "get goals" btn is clicked -->
+        <div id="content" class="content">
+        </div>
+
+
+        <!-- Modals Start Here, sign-in specifically -->
         <div class="modal fade" id="sign-up-modal" tabindex="-1" role="dialog" aria-labelledby="sign-up-modal">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
