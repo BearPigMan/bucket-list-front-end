@@ -5,6 +5,7 @@ const localGoals = require('./localGoals.js');
 
 const getGoalsSuccess = (goals) => {
   console.log("goals are: ", localGoals.showAll());
+  debugger;
   $('#content').html(showGoalsTemplate(goals));
 };
 
