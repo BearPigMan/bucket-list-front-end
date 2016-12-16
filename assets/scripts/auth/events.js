@@ -3,6 +3,7 @@
 const getFormFields = require('../../../lib/get-form-fields');
 const api = require('./api.js');
 const ui = require('./ui.js');
+const goals = require('../goals/events.js');
 
 const onSignUp = function(e){
  e.preventDefault();
@@ -22,7 +23,7 @@ const onSignIn = function(e){
   let data = getFormFields(this);
   api.signIn(data)
     .then(ui.signInSuccess)
-    // .then( () => {meds.indexGoals();})
+    .then( () => {goals.getGoals();})
     .catch(ui.signInFailure);
 };
 

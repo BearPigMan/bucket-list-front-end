@@ -4,8 +4,7 @@ const getFormFields = require('../../../lib/get-form-fields');
 const api = require('./api.js');
 const ui = require('./ui.js');
 
-const onGetGoals = (e) => {
-  e.preventDefault();
+const getGoals = () => {
   api.getGoals()
     .then(ui.getGoalsSuccess)
     .catch(ui.failure);
@@ -38,7 +37,7 @@ const onDeleteGoal = (e) => {
 };
 
 const addHandlers = () => {
-  $('#get-goal-form').on('submit', onGetGoals);
+  // $('#get-goal-form').on('submit', onGetGoals);
   $('#post-goal-form').on('submit', onPostGoal);
   $('#content').on('submit', '.patch-goal-form', onPatchGoal);
   $('#content').on('click', '.delete-goal', onDeleteGoal);
@@ -47,4 +46,5 @@ const addHandlers = () => {
 
 module.exports = {
   addHandlers,
+  getGoals
 };
