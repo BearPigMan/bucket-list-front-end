@@ -19,9 +19,5 @@ $(()=> {
     center: {
       lat: 42.3533642,
       lng: -71.057256
-    }
-
-, zoom:10})
-
-  .then(map => setTimeout(()=>map.setZoom(18), 1600))
+    }, zoom:10});
 });

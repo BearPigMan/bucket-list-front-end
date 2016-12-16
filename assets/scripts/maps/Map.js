@@ -11,16 +11,15 @@ const getMap = function(el, options) {
         reject();
       }
 // el is the dom element we want to put the map insde
-      resolve(new google.maps.Map(el, options));
+      let map = new google.maps.Map(el, options);
+      map.addListener("click", function (e) {
+        debugger;
+      //lat and lng is available in e object
+        let latLng = e.latLng;
+        console.log(latLng.lat());
+      });
     });
   });
-
-  google.maps.event.addListener(map, "click", function (e) {
-
-    //lat and lng is available in e object
-    var latLng = e.latLng;
-    console.log(latLng);
-});
 };
 
 module.exports = getMap;
