@@ -17,7 +17,10 @@ const getMap = function(el, options) {
         let latLng = e.latLng;
         let marker = new google.maps.Marker({
           position: latLng,
-          map: map
+          map: map,
+        });
+          google.maps.event.addListener(marker, 'click', function() {
+              $('#click-marker-modal').modal('show');
         });
       });
     });

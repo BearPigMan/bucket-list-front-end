@@ -66,7 +66,7 @@
 
 
         <!-- Modals Start Here, sign-in specifically -->
-        <div class="modal fade" id="sign-up-modal" tabindex="-1" role="dialog" aria-labelledby="sign-up-modal">
+      <div class="modal fade" id="sign-up-modal" tabindex="-1" role="dialog" aria-labelledby="sign-up-modal">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
@@ -146,7 +146,35 @@
           </div>
         </div>
       </div>
-
+      <!-- This is the marker modal -->
+      <div class="modal fade" id="click-marker-modal" tabindex="-1" role="dialog" aria-labelledby="click-marker-modal">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title">Marker Information:</h4>
+            </div>
+            <div class="modal-body">
+              <div class="modal-goal-title">Goal title: </div>
+              <div class="modal-goal-description">Description: </div>
+                <div class='patch-goal-container'>
+                  <form class="patch-goal-modal-form">
+                    <input type="text" name="goal[title]" placeholder="Enter your goal!">
+                    <input type="text" name="goal[description]" placeholder="Enter your description!">
+                    <button type="submit" class="patch-goal" value="Click here to Patch this goal">
+                      Update Goal</button>
+                  </form>
+                </div>
+                <div class='delete-goal-container'>
+                  <form class="delete-goal-modal-form">
+                    <button type="submit" class="delete-goal" value="Click here to Delete this goal">
+                      Delete Goal</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </main>
       <footer>
       </footer>

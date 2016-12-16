@@ -42,7 +42,8 @@ const addHandlers = () => {
   $('#post-goal-form').on('submit', onPostGoal);
   $('#content').on('submit', '.patch-goal-form', onPatchGoal);
   $('#content').on('click', '.delete-goal', onDeleteGoal);
-
+  $('.patch-goal-modal-form').on('submit', onPatchGoal);
+  $('.delete-goal-modal-form').on('submit', onDeleteGoal);
 };
 
 module.exports = {
