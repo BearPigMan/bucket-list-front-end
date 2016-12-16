@@ -1,9 +1,10 @@
 'use strict';
 
 const showGoalsTemplate = require('../templates/goal-listing.handlebars');
+const localGoals = require('./localGoals.js');
 
 const getGoalsSuccess = (goals) => {
-  console.log("goals are: ", goals);
+  console.log("goals are: ", localGoals.showAll());
   $('#content').html(showGoalsTemplate(goals));
 };
 

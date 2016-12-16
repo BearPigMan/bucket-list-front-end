@@ -3,9 +3,11 @@
 const getFormFields = require('../../../lib/get-form-fields');
 const api = require('./api.js');
 const ui = require('./ui.js');
+const localGoals = require('./localGoals.js');
 
 const getGoals = () => {
   api.getGoals()
+    .then(localGoals.storeAll)
     .then(ui.getGoalsSuccess)
     .catch(ui.failure);
 };
