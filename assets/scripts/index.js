@@ -4,7 +4,7 @@ const setAPIOrigin = require('../../lib/set-api-origin');
 const config = require('./config');
 const getMap = require('./maps/Map');
 const {getGoals} = require('./goals/api');
-const {createMarkerFromGoal} = require('./goals/toMap');
+const {convertToMarker} = require('./goals/goalToMarker')
 
 $(() => {
   setAPIOrigin(location, config);
@@ -23,10 +23,5 @@ $(() => {
       lng: 18.070
     },
     zoom: 10
-  }).then(function(map) {
-    getGoals().then(goals => goals.goals.map(goal => {
-      createMarkerFromGoal(goal, map)
-    }))
-  })
-
-})
+  });
+});

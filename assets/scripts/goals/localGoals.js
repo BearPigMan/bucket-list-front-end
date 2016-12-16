@@ -18,14 +18,16 @@ const showAll = () => {
 };
 
 const storeAll = (data) => {
+  // console.log(data);
   store.goals = data.goals;
+  console.log(store.goals)
   return store.goals;
 };
 
 const update = (newGoal) => {
-    let index = store.goals.findIndex((goal) => newGoal.id === goal.id);
-    store.goals[index] = newGoal;
-    return store.goals;
+  let index = store.goals.findIndex((goal) => newGoal.id === goal.id);
+  store.goals[index] = newGoal;
+  return store.goals;
 };
 
 module.exports = {
@@ -33,5 +35,5 @@ module.exports = {
   destroy,
   showAll,
   storeAll,
-  update,
+  update
 };
