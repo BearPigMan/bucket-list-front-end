@@ -13,10 +13,12 @@ const getMap = function(el, options) {
 // el is the dom element we want to put the map insde
       let map = new google.maps.Map(el, options);
       map.addListener("click", function (e) {
-        debugger;
       //lat and lng is available in e object
         let latLng = e.latLng;
-        console.log(latLng.lat());
+        let marker = new google.maps.Marker({
+          position: latLng,
+          map: map
+        });
       });
     });
   });
