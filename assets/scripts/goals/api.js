@@ -6,18 +6,18 @@ const store = require('../store.js');
 const getGoals = function() {
   return $.ajax({
     url: app.host + 'goals',
-    method:'GET',
+    method: 'GET'
   });
 };
-
+window.getGoals = getGoals;
 const postGoal = function(data) {
   return $.ajax({
     url: app.host + 'goals/',
     method: 'POST',
     headers: {
-        Authorization: 'Token token=' + store.user.token,
-      },
-      data,
+      Authorization: 'Token token=' + store.user.token
+    },
+    data
   });
 };
 
@@ -26,19 +26,19 @@ const deleteGoal = function(id) {
     method: 'DELETE',
     url: app.host + 'goals/' + id,
     headers: {
-      Authorization: 'Token token=' + store.user.token,
-    },
+      Authorization: 'Token token=' + store.user.token
+    }
   });
 };
 
-const patchGoal = function (id, data) {
+const patchGoal = function(id, data) {
   return $.ajax({
     method: 'PATCH',
     url: app.host + 'goals/' + id,
     headers: {
-      Authorization: 'Token token=' + store.user.token,
+      Authorization: 'Token token=' + store.user.token
     },
-    data: data,
+    data: data
   });
 };
 
@@ -46,5 +46,5 @@ module.exports = {
   getGoals,
   postGoal,
   deleteGoal,
-  patchGoal,
+  patchGoal
 };
