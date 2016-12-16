@@ -2,7 +2,8 @@
 
 function triggerModal(marker) {
   marker.addListener('click', function() {
-    $('#click-marker-modal').modal('show');
+    $('#click-marker-modal').modal('show')
+    console.log(marker.id);
 
   });
 };

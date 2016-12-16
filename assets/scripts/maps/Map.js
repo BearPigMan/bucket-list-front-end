@@ -9,10 +9,9 @@ const getMap = function(el, options) {
       if (!google) {
         reject();
       }
-      // el is the dom element we want to put the map insde
       let map = new google.maps.Map(el, options);
       window.map = map;
-
+      // PLACE CLICK HANDLERS FOR THE MAP HERE
       resolve(map);
 
     });
