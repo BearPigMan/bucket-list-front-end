@@ -5,41 +5,35 @@ const api = require('./api.js');
 const ui = require('./ui.js');
 const goals = require('../goals/events.js');
 
-const onSignUp = function(e){
- e.preventDefault();
- let data = getFormFields(this);
- let credentials = data;
- api.signUp(data)
+const onSignUp = function(e) {
+  e.preventDefault();
+  let data = getFormFields(this);
+  let credentials = data;
+  api.signUp(data)
   // promise to sign-in automatically after sign-up
-  .then(function() {
+    .then(function() {
     return api.signIn(credentials);
-  })
-  .then(ui.signInSuccess)
-  .catch(ui.failure);
+  }).then(ui.signInSuccess).catch(ui.failure);
 };
 
-const onSignIn = function(e){
+const onSignIn = function(e) {
+  console.log("cooooooo")
   e.preventDefault();
   let data = getFormFields(this);
-  api.signIn(data)
-    .then(ui.signInSuccess)
-    .then( () => {goals.getGoals();})
-    .catch(ui.signInFailure);
+  api.signIn(data).then(ui.signInSuccess).then(() => {
+    goals.getGoals();
+  }).catch(ui.signInFailure);
 };
 
-const onChangePassword = function(e){
+const onChangePassword = function(e) {
   e.preventDefault();
   let data = getFormFields(this);
-  api.changePassword(data)
-    .then(ui.changePasswordSuccess)
-    .catch(ui.changePasswordFailure);
+  api.changePassword(data).then(ui.changePasswordSuccess).catch(ui.changePasswordFailure);
 };
 
-const onSignOut = function(e){
+const onSignOut = function(e) {
   e.preventDefault();
-  api.signOut()
-    .then(ui.signOutSuccess)
-    .catch(ui.failure);
+  api.signOut().then(ui.signOutSuccess).catch(ui.failure);
   // $('.med-grid').html('');
 };
 
@@ -51,5 +45,5 @@ const addAuthHandlers = () => {
 };
 
 module.exports = {
-  addAuthHandlers,
+  addAuthHandlers
 };

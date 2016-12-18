@@ -146,6 +146,7 @@
           </div>
         </div>
       </div>
+
       <!-- This is the marker modal -->
       <div class="modal fade" id="click-marker-modal" tabindex="-1" role="dialog" aria-labelledby="click-marker-modal">
         <div class="modal-dialog" role="document">
@@ -175,6 +176,28 @@
             </div>
           </div>
         </div>
+        <div class="modal fade" id="create-marker-modal" tabindex="-1" role="dialog" aria-labelledby="create-marker-modal">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Marker Information:</h4>
+              </div>
+              <div class="modal-body">
+                <div class="modal-goal-title">Goal title: </div>
+                <div class="modal-goal-description">Description: </div>
+                  <div class='post-goal-container'>
+                    <form class="post-goal-modal-form">
+                      <input type="text" name="goal[title]" placeholder="Enter your goal!">
+                      <input type="text" name="goal[description]" placeholder="Enter your description!">
+                      <button type="submit" class="post-goal" value="Click here to Post this goal">
+                        Create Goal</button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
       </main>
       <footer>
       </footer>

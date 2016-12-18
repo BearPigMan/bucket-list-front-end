@@ -1,7 +1,9 @@
 'use strict';
 
 const store = {
-  goals: [],
+  goals: new Map([])
 };
+
+window.store = store;
 
 module.exports = store;

@@ -4,19 +4,17 @@ const getFormFields = require('../../../lib/get-form-fields');
 const api = require('./api.js');
 const ui = require('./ui.js');
 const localGoals = require('./localGoals.js');
-const {convertToMarker} = require('./goalToMarker');
 
 const getGoals = () => {
-  api.getGoals().then(localGoals.storeAll).then(goals => {
-    console.log(goals)
-    goals.map(convertToMarker)
-  }).catch(ui.failure);
+  console.log("cool")
+  api.getGoals().then(localGoals.storeAll).catch(ui.failure);
 };
 
-const onPostGoal = (e) => {
+const onPostGoal = (e, coords) => {
   e.preventDefault();
   let data = getFormFields(e.target);
-  api.postGoal(data).then(ui.postGoalSuccess).catch(ui.failure);
+  data.goal.position = coords;
+  api.postGoal(data).then((data) => localGoals.create(data.goal)).catch(ui.failure);
 };
 
 const onPatchGoal = (e) => {
@@ -35,14 +33,17 @@ const onDeleteGoal = (e) => {
 
 const addHandlers = () => {
   // $('#get-goal-form').on('submit', onGetGoals);
-  $('#post-goal-form').on('submit', onPostGoal);
-  $('#content').on('submit', '.patch-goal-form', onPatchGoal);
-  $('#content').on('click', '.delete-goal', onDeleteGoal);
-  $('.patch-goal-modal-form').on('submit', onPatchGoal);
-  $('.delete-goal-modal-form').on('submit', onDeleteGoal);
+  // $('#post-goal-form').on('submit', onPostGoal);
+  // $('#content').on('submit', '.patch-goal-form', onPatchGoal);
+  // $('#content').on('click', '.delete-goal', onDeleteGoal);
+  // $('.patch-goal-modal-form').on('submit', onPatchGoal);
+  // $('.delete-goal-modal-form').on('submit', onDeleteGoal);
 };
 
 module.exports = {
   addHandlers,
-  getGoals
+  getGoals,
+  onPostGoal,
+  onPatchGoal,
+  onDeleteGoal
 };

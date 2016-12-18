@@ -1,9 +1,12 @@
 'use strict';
 
 const store = require('../store.js');
+const {convertAndAdd} = require('./goalToMarker.js')
 
 const create = (goal) => {
-  store.goals.push(goal);
+  console.log(goal);
+  convertAndAdd(goal);
+  console.log(store.goals)
   return store.goals;
 };
 
@@ -19,8 +22,8 @@ const showAll = () => {
 
 const storeAll = (data) => {
   // console.log(data);
-  store.goals = data.goals;
-  console.log(store.goals)
+  data.goals.map(convertAndAdd);
+  console.log(store.goals);
   return store.goals;
 };
 

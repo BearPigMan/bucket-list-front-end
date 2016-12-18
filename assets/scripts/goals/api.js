@@ -10,6 +10,7 @@ const getGoals = function() {
   });
 };
 window.getGoals = getGoals;
+
 const postGoal = function(data) {
   return $.ajax({
     url: app.host + 'goals/',
