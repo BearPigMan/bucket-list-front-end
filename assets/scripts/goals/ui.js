@@ -11,6 +11,9 @@ const postGoalSuccess = (goal) => {
   $('#content').html();
 };
 
+const deleteGoalSucess = (goal) => {
+  $('')
+}
 
 
 module.exports = {

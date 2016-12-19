@@ -15,8 +15,18 @@ const triggerModal = function(marker) {
       let data = getFormFields(e.target);
       let id = marker.id;
       api.patchGoal(id, data).then(ui.patchGoalSuccess).catch(ui.failure);
-   })
+   });
     $('#click-marker-modal').modal('show');
+    $('.delete-goal-modal-form').on('submit', function(e){
+      e.preventDefault();
+      let id = marker.id;
+      console.log(marker.id);
+      api.deleteGoal(id).then(localGoals.destroy).catch(ui.failure);
+      console.log("The delete button has been clicked!!!!");
+      console.log(this);
+      $('#click-marker-modal').modal('hide');
+    });
+
 
   });
   return marker;
