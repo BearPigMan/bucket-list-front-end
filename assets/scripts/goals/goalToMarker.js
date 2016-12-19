@@ -25,8 +25,10 @@ const triggerModal = function(marker) {
     $('#click-marker-modal').modal('show');
     $('.delete-goal-modal-form').on('submit', function(e) {
       e.preventDefault();
-      console.log(marker.id);
-      api.deleteGoal(id).then(localGoals.destroy).catch(ui.failure);
+      api.deleteGoal(marker.id).then(() => {
+        store.goals[marker.id].setMap(null);
+        $('.delete-goal-modal-form').off('submit');
+      }).catch(ui.failure);
       $('#click-marker-modal').modal('hide');
     });
   });
