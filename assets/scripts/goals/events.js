@@ -26,6 +26,10 @@ const onPatchGoal = (e) => {
   api.patchGoal(id, data).then(ui.patchGoalSuccess).catch(ui.failure);
 };
 
+const onSignOut = () => {
+  localGoals.clearAll();
+};
+
 // const onPatchGoal = (e) => {
 //   e.preventDefault();
 //   let data = getFormFields(e.target);
@@ -33,7 +37,6 @@ const onPatchGoal = (e) => {
 //   let id = $(e.target).data('id');
 //   api.patchGoal(id, data).then(ui.patchGoalSuccess).catch(ui.failure);
 // };
-
 
 const onDeleteGoal = (e) => {
   e.preventDefault();
@@ -54,6 +57,7 @@ module.exports = {
   addHandlers,
   getGoals,
   onPostGoal,
+  onSignOut,
   // onPatchGoal,
   onDeleteGoal
 };
