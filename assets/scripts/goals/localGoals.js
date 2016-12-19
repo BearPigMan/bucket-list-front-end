@@ -27,21 +27,12 @@ const storeAll = (data) => {
   return store.goals;
 };
 
-const clearAll = () => {
-  debugger;
-  for (let i = 0; i < store.goals.length; i++) {
-    store.goals[i].setMap(null);
-  }
-};
-
-const update = (newGoal) => {
-  let index = store.goals.findIndex((goal) => newGoal.id === goal.id);
-  store.goals[index] = newGoal;
+const update = (id, data) => {
+  store.goals[id].data = data.goal;
   return store.goals;
 };
 
 module.exports = {
-  clearAll,
   create,
   destroy,
   showAll,
