@@ -5,10 +5,14 @@ const api = require('./api.js');
 const ui = require('./ui.js');
 const localGoals = require('./localGoals.js');
 
+const populateUpdateModal = function(marker) {
+  $('.click-title-field').val(marker.data.title);
+  $('.click-description-field').val(marker.data.description);
+};
+
 const triggerModal = function(marker) {
   marker.addListener('click', function() {
-    $('.click-title-field').val(this.data.title);
-    $('.click-description-field').val(this.data.description);
+    populateUpdateModal(marker);
     $('.patch-goal-modal-form').on('submit', function(e) {
       e.preventDefault();
       let data = getFormFields(e.target);
