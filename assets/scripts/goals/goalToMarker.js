@@ -43,10 +43,10 @@ const convertToMarker = function(goal) {
   let marker = new google.maps.Marker({data: goal, id: goal.id, position: goal.position, map: window.map});
   return marker;
 };
-
-const addClickHandlers = function(markerGoal) {
-  return triggerModal(markerGoal);
-};
+//
+// const addClickHandlers = function(markerGoal) {
+//   return triggerModal(markerGoal);
+// };
 
 const addToStore = function(markerGoal) {
   store.goals[markerGoal.id] = markerGoal;
@@ -54,7 +54,7 @@ const addToStore = function(markerGoal) {
 };
 
 const convertAndAdd = function(goal) {
-  addToStore(addClickHandlers(convertToMarker(goal)));
+  addToStore(triggerModal(convertToMarker(goal)));
 };
 
 module.exports = {
