@@ -4,8 +4,8 @@ const store = require('../store');
 const triggerModal = function(marker) {
   marker.addListener('click', function() {
     debugger;
-    $('.goal-title-field').val(this.data.title);
-    $('.goal-description-field').val(this.data.description);
+    $('.click-title-field').val(this.data.title);
+    $('.click-description-field').val(this.data.description);
     $('.patch-goal-modal-form').on('submit', function(e) {
      e.preventDefault();
      console.log("THIS IS WHAT HAPPENS WHEN YOU CLICK SUBMIT!!! WHEN YOU ARE trying to change it")
