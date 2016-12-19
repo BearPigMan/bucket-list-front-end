@@ -14,6 +14,9 @@ const createGoalHandler = function(map) {
     $('#create-marker-modal').modal().find('form').on('submit', (e) => {
       onPostGoal(e, coords);
       $(e.target).off('submit');
+      $('#create-marker-modal').hide();
+      $('body').removeClass('modal-open');
+      $('.modal-backdrop').remove();
     });
   });
   return map;
