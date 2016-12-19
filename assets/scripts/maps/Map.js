@@ -17,8 +17,8 @@ const createGoalHandler = function(map) {
       $(e.target).off('submit');
       $('.create-title-field').val('');
       $('.create-description-field').val('');
-      $('#create-marker-modal').modal('hide');
-      $('body').removeClass('modal-open');
+      $('#create-marker-modal').hide();
+      // $('body').removeClass('modal-open');
       // $('.modal-backdrop').remove();
     });
   });

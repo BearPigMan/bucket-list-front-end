@@ -13,13 +13,17 @@ const triggerModal = function(marker) {
       e.preventDefault();
       let data = getFormFields(e.target);
       let id = marker.id;
-      api.patchGoal(id, data).then(() => {
+      api.patchGoal(id, data)
+      .then(() => {
         console.log("patched goal success");
         console.log(store.goals[id]);
         store.goals[id].data = data.goal;
-      }).then(() => {
+      })
+      .then(() => {
         $('.patch-goal-modal-form').off('submit');
-      }).catch(ui.failure);
+        $('#click-marker-modal').modal('hide');
+      })
+      .catch(ui.failure);
     });
     $('#click-marker-modal').modal('show');
     $('.delete-goal-modal-form').on('submit', function(e) {
