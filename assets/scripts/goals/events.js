@@ -6,7 +6,7 @@ const ui = require('./ui.js');
 const localGoals = require('./localGoals.js');
 
 const getGoals = () => {
-  console.log("cool")
+  console.log("cool");
   api.getGoals().then(localGoals.storeAll).catch(ui.failure);
 };
 
@@ -17,13 +17,13 @@ const onPostGoal = (e, coords) => {
   api.postGoal(data).then((data) => localGoals.create(data.goal)).catch(ui.failure);
 };
 
-const onPatchGoal = (e) => {
-  e.preventDefault();
-  let data = getFormFields(e.target);
-  // pull id data attribute from form
-  let id = $(e.target).data('id');
-  api.patchGoal(id, data).then(ui.patchGoalSuccess).catch(ui.failure);
-};
+// const onPatchGoal = (e) => {
+//   e.preventDefault();
+//   let data = getFormFields(e.target);
+//   // pull id data attribute from form
+//   let id = $(e.target).data('id');
+//   api.patchGoal(id, data).then(ui.patchGoalSuccess).catch(ui.failure);
+// };
 
 const onDeleteGoal = (e) => {
   e.preventDefault();
@@ -44,6 +44,6 @@ module.exports = {
   addHandlers,
   getGoals,
   onPostGoal,
-  onPatchGoal,
+  // onPatchGoal,
   onDeleteGoal
 };
