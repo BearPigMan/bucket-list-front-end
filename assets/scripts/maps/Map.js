@@ -6,17 +6,20 @@ const {onPostGoal} = require('../goals/events');
 GoogleMapsLoader.KEY = 'AIzaSyAno98KEm1S4ABBzN4FMRxPtMT58JpAKvk';
 
 const createGoalHandler = function(map) {
-  let handler = map.addListener('click', function({latLng}) {
+  let handler = map.addListener('click', function(event) {
     let coords = {
-      lat: latLng.lat(),
-      lng: latLng.lng()
+      lat: event.latLng.lat(),
+      lng: event.latLng.lng()
     };
     $('#create-marker-modal').modal().find('form').on('submit', (e) => {
       onPostGoal(e, coords);
+      console.log(e);
       $(e.target).off('submit');
-      $('#create-marker-modal').hide();
+      $('.create-title-field').val('');
+      $('.create-description-field').val('');
+      $('#create-marker-modal').modal('hide');
       $('body').removeClass('modal-open');
-      $('.modal-backdrop').remove();
+      // $('.modal-backdrop').remove();
     });
   });
   return map;
