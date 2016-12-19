@@ -1,5 +1,9 @@
 'use strict';
 const store = require('../store');
+const getFormFields = require('../../../lib/get-form-fields');
+const api = require('./api.js');
+const ui = require('./ui.js');
+const localGoals = require('./localGoals.js');
 
 const triggerModal = function(marker) {
   marker.addListener('click', function() {
@@ -7,8 +11,10 @@ const triggerModal = function(marker) {
     $('.click-title-field').val(this.data.title);
     $('.click-description-field').val(this.data.description);
     $('.patch-goal-modal-form').on('submit', function(e) {
-     e.preventDefault();
-     console.log("THIS IS WHAT HAPPENS WHEN YOU CLICK SUBMIT!!! WHEN YOU ARE trying to change it")
+      e.preventDefault();
+      let data = getFormFields(e.target);
+      let id = marker.id;
+      api.patchGoal(id, data).then(ui.patchGoalSuccess).catch(ui.failure);
    })
     $('#click-marker-modal').modal('show');
 
