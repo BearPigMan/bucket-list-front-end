@@ -13,15 +13,16 @@ const populateUpdateModal = function(marker) {
 const triggerModal = function(marker) {
   marker.addListener('click', function() {
     populateUpdateModal(marker);
+
     $('.patch-goal-modal-form').on('submit', function(e) {
       e.preventDefault();
       let data = getFormFields(e.target);
       let id = marker.id;
-      api.patchGoal(id, data).then(() => {
-        console.log("patched goal success");
-        console.log(store.goals[id]);
-        store.goals[id].data = data.goal;
-      }).then(() => {
+      api.patchGoal(id, data)
+        .then(() => {
+          store.goals[id].data = data.goal;
+        })
+        .then(() => {
         $('.patch-goal-modal-form').off('submit');
         $('#click-marker-modal').modal('hide');
       }).catch(ui.failure);
