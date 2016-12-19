@@ -1,12 +1,12 @@
 'use strict';
-const store = require('../store')
+const store = require('../store');
 
-function triggerModal(marker) {
+const triggerModal = function(marker) {
   marker.addListener('click', function() {
-    $('#click-marker-modal').modal('show')
+    $('#click-marker-modal').modal('show');
 
   });
-  return marker
+  return marker;
 };
 
 const convertToMarker = function(goal) {
@@ -16,16 +16,16 @@ const convertToMarker = function(goal) {
 
 const addClickHandlers = function(markerGoal) {
   return triggerModal(markerGoal);
-}
+};
 
 const addToStore = function(markerGoal) {
   store.goals[markerGoal.id] = markerGoal;
   return markerGoal;
-}
+};
 
 const convertAndAdd = function(goal) {
-  addToStore(addClickHandlers(convertToMarker(goal)))
-}
+  addToStore(addClickHandlers(convertToMarker(goal)));
+};
 
 module.exports = {
   convertAndAdd
