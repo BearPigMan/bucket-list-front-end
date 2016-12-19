@@ -4,10 +4,17 @@ const getFormFields = require('../../../lib/get-form-fields');
 const api = require('./api.js');
 const ui = require('./ui.js');
 const localGoals = require('./localGoals.js');
+const {convertAndAdd} = require('./goalToMarker.js');
 
 const getGoals = () => {
   console.log("cool");
-  api.getGoals().then(localGoals.storeAll).catch(ui.failure);
+  api.getGoals()
+  .then((data) => {
+    data.goals.map(convertAndAdd);
+    debugger;
+    return localGoals.showAll();
+  })
+  .catch(ui.failure);
 };
 
 const onPostGoal = (e, coords) => {

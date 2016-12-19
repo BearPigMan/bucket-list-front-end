@@ -3,6 +3,7 @@ const store = require('../store');
 const getFormFields = require('../../../lib/get-form-fields');
 const api = require('./api.js');
 const ui = require('./ui.js');
+
 // const localGoals = require('./localGoals.js');
 
 const populateUpdateModal = function(marker) {
