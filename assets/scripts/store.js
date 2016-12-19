@@ -1,7 +1,7 @@
 'use strict';
 
 const store = {
-  goals: new Map([])
+  goals: {}
 };
 
 window.store = store;

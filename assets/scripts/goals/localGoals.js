@@ -1,12 +1,12 @@
 'use strict';
 
 const store = require('../store.js');
-const {convertAndAdd} = require('./goalToMarker.js')
+const {convertAndAdd} = require('./goalToMarker.js');
 
 const create = (goal) => {
-  console.log(goal);
+  // console.log(goal);
   convertAndAdd(goal);
-  console.log(store.goals)
+  // console.log(store.goals)l
   return store.goals;
 };
 

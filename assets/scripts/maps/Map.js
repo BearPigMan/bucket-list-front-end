@@ -11,9 +11,11 @@ const createGoalHandler = function(map) {
       lat: latLng.lat(),
       lng: latLng.lng()
     };
-    $('#create-marker-modal').modal().find('form').on('submit', (e) => onPostGoal(e, coords));
+    $('#create-marker-modal').modal().find('form').on('submit', (e) => {
+      onPostGoal(e, coords);
+      $(e.target).off('submit');
+    });
   });
-  $('#create-marker-modal').on('hidden.bs.modal', () => $('#create-marker-modal').modal().find('form').removeEventListener('submit'));
   return map;
 };
 

@@ -1,5 +1,6 @@
 'use strict';
 const store = require('../store')
+
 function triggerModal(marker) {
   marker.addListener('click', function() {
     $('#click-marker-modal').modal('show')
@@ -10,7 +11,7 @@ function triggerModal(marker) {
 
 const convertToMarker = function(goal) {
   let marker = new google.maps.Marker({data: goal, id: goal.id, position: goal.position, map: window.map});
-  return marker
+  return marker;
 };
 
 const addClickHandlers = function(markerGoal) {
@@ -18,7 +19,7 @@ const addClickHandlers = function(markerGoal) {
 }
 
 const addToStore = function(markerGoal) {
-  store.goals.set(markerGoal.id, markerGoal);
+  store.goals[markerGoal.id] = markerGoal;
   return markerGoal;
 }
 
