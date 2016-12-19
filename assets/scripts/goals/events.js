@@ -19,7 +19,6 @@ const onPostGoal = (e, coords) => {
 
 const onPatchGoal = (e) => {
   e.preventDefault();
-  debugger;
   let data = getFormFields(e.target);
   // pull id data attribute from form
   let id = $(e.target).data('id');

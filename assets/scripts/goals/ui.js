@@ -8,7 +8,7 @@ const getGoalsSuccess = (goals) => {
 };
 
 const postGoalSuccess = (goal) => {
-  $('#content').html();
+  console.log("New goal: ", goal);
 };
 
 

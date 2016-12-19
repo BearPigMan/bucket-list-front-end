@@ -3,8 +3,8 @@
 const setAPIOrigin = require('../../lib/set-api-origin');
 const config = require('./config');
 const getMap = require('./maps/Map');
-const {getGoals} = require('./goals/api');
-const {convertToMarker} = require('./goals/goalToMarker');
+// const {getGoals} = require('./goals/api');
+// const {convertToMarker} = require('./goals/goalToMarker');
 
 $(() => {
   setAPIOrigin(location, config);

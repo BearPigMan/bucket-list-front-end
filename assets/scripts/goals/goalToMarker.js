@@ -7,7 +7,6 @@ const localGoals = require('./localGoals.js');
 
 const triggerModal = function(marker) {
   marker.addListener('click', function() {
-    debugger;
     $('.click-title-field').val(this.data.title);
     $('.click-description-field').val(this.data.description);
     $('.patch-goal-modal-form').on('submit', function(e) {
@@ -15,7 +14,7 @@ const triggerModal = function(marker) {
       let data = getFormFields(e.target);
       let id = marker.id;
       api.patchGoal(id, data).then(ui.patchGoalSuccess).catch(ui.failure);
-   })
+   });
     $('#click-marker-modal').modal('show');
 
   });
