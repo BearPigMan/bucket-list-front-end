@@ -7,22 +7,22 @@ const success = (data) => {
 };
 
 const signInSuccess = (data) => {
-    // save user token
-    store.user = data.user;
-    // change dropdown buttons
-    $('.sign-in-btn').hide();
-    $('.sign-up-btn').hide();
-    $('.auth-dropdown-toggle').text(store.user.email);
-    $('.change-pw-btn').removeClass('hidden');
-    $('#sign-out-btn').removeClass('hidden');
-    $('.change-pw-btn').show();
-    $('#sign-out-btn').show();
-    $('#sign-in-modal').modal('hide');
-    $('#sign-up-modal').modal('hide');
-    // clear modal fields for better security
-    $('.sign-in-form input').val('');
-    $('.sign-up-form input').val('');
-    success(data);
+  // save user token
+  store.user = data.user;
+  // change dropdown buttons
+  $('.sign-in-btn').hide();
+  $('.sign-up-btn').hide();
+  $('.auth-dropdown-toggle').text(store.user.email);
+  $('.change-pw-btn').removeClass('hidden');
+  $('#sign-out-btn').removeClass('hidden');
+  $('.change-pw-btn').show();
+  $('#sign-out-btn').show();
+  $('#sign-in-modal').modal('hide');
+  $('#sign-up-modal').modal('hide');
+  // clear modal fields for better security
+  $('.sign-in-form input').val('');
+  $('.sign-up-form input').val('');
+  success(data);
 };
 
 const failure = (error) => {
@@ -45,6 +45,10 @@ const changePasswordFailure = (error) => {
   console.error(error);
 };
 
+const removeMarkers = () => {
+  Object.keys(store.goals).map(id => store.goals[id].setMap(null))
+}
+
 const signOutSuccess = (data) => {
   $('.change-pw-btn').hide();
   $('#sign-out-btn').hide();
@@ -52,6 +56,8 @@ const signOutSuccess = (data) => {
   $('.sign-in-btn').show();
   $('.sign-up-btn').show();
   $('.auth-dropdown-toggle').text("Sign up/Sign in");
+  removeMarkers();
+
   success(data);
 };
 
