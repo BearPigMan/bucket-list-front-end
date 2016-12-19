@@ -6,7 +6,10 @@ const store = require('../store.js');
 const getGoals = function() {
   return $.ajax({
     url: app.host + 'goals',
-    method: 'GET'
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
   });
 };
 window.getGoals = getGoals;
