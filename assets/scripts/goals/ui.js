@@ -11,6 +11,9 @@ const postGoalSuccess = (goal) => {
   console.log("New goal: ", goal);
 };
 
+const deleteGoalSucess = (goal) => {
+  $('')
+}
 
 
 module.exports = {

@@ -24,8 +24,8 @@ $(() => {
     },
     zoom: 10
   }).then(map => {
-    $('#sign-in-password').val('herp');
-    $('#sign-in-email').val('herp@derp.com');
+    $('#sign-in-password').val('1');
+    $('#sign-in-email').val('test@test.com');
     $('.sign-in-form').trigger('submit');
 
   });
