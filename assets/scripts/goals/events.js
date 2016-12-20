@@ -56,19 +56,21 @@ const onSignOut = () => {
   localGoals.clearAll();
 };
 
+const onMarkerClick = function(e) {
+  onPostGoal(e, coords);
+  console.log(e);
+  $(e.target).off('submit');
+  $('.create-title-field').val('');
+  $('.create-description-field').val('');
+  $('#create-marker-modal').modal('hide');
+};
+
 const onMapClick = function(event) {
   let coords = {
     lat: event.latLng.lat(),
     lng: event.latLng.lng()
   };
-  $('#create-marker-modal').modal().find('form').on('submit', (e) => {
-    onPostGoal(e, coords);
-    console.log(e);
-    $(e.target).off('submit');
-    $('.create-title-field').val('');
-    $('.create-description-field').val('');
-    $('#create-marker-modal').modal('hide');
-  });
+  $('#create-marker-modal').modal().find('form').on('submit', onMarkerClick);
 };
 
 const offMapClick = function() {
