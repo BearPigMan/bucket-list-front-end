@@ -36,8 +36,9 @@ const getGoals = () => {
   .then((data) => {
     // add goals to map and local storage, set click handler on map
     data.goals.map(convertAndAdd);
+    // grab postition of first goal and center map there
     let firstPosition = Object.values(localGoals.showAll())[0].data.position;
-    console.log(firstPosition);
+    map.setCenter(firstPosition);
     return localGoals.showAll();
   })
   .catch(ui.failure);
