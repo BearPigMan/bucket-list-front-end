@@ -46,6 +46,7 @@ const onPostGoal = (e, coords) => {
   e.preventDefault();
   let data = getFormFields(e.target);
   data.goal.position = coords;
+  debugger;
   api.postGoal(data).then((data) => localGoals.create(data.goal)).catch(ui.failure);
 };
 
