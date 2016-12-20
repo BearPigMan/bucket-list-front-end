@@ -72,11 +72,11 @@ const onMapClick = function(event) {
 };
 
 const offMapClick = function() {
-  map.removeListener('click');
+  google.maps.event.removeListener(mapListener);
 };
 
 const addHandlers = () => {
-  map.addListener('click', onMapClick);
+  window.mapListener = map.addListener('click', onMapClick);
   // set up click handler for submit button on update modal
   $('.patch-goal-modal-form').on('submit', onPatchGoal);
   // set up click handler for delete button on update modal

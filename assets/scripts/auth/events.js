@@ -38,7 +38,7 @@ const onChangePassword = function(e) {
 const onSignOut = function(e) {
   e.preventDefault();
   api.signOut().then(ui.signOutSuccess).catch(ui.failure);
-  // $('.med-grid').html('');
+  goals.offMapClick();
 };
 
 const addAuthHandlers = () => {
