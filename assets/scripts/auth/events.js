@@ -10,14 +10,12 @@ const onSignUp = function(e) {
   let data = getFormFields(this);
   let credentials = data;
   api.signUp(data)
-  // promise to sign-in automatically after sign-up
     .then(function() {
     return api.signIn(credentials);
   }).then(ui.signInSuccess).catch(ui.failure);
 };
 
 const onSignIn = function(e) {
-  console.log("cooooooo")
   e.preventDefault();
   let data = getFormFields(this);
   api.signIn(data).then(ui.signInSuccess).then(() => {
@@ -34,7 +32,6 @@ const onChangePassword = function(e) {
 const onSignOut = function(e) {
   e.preventDefault();
   api.signOut().then(ui.signOutSuccess).catch(ui.failure);
-  // $('.med-grid').html('');
 };
 
 const addAuthHandlers = () => {

@@ -7,16 +7,6 @@ const getGoalsSuccess = (goals) => {
   $('#content').html(showGoalsTemplate(goals));
 };
 
-const postGoalSuccess = (goal) => {
-  console.log("New goal: ", goal);
-};
-
-const deleteGoalSucess = (goal) => {
-  $('')
-}
-
-
 module.exports = {
   getGoalsSuccess,
-  postGoalSuccess,
 };

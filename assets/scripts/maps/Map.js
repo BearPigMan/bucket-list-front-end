@@ -13,7 +13,6 @@ const createGoalHandler = function(map) {
     };
     $('#create-marker-modal').modal().find('form').on('submit', (e) => {
       onPostGoal(e, coords);
-      console.log(e);
       $(e.target).off('submit');
       $('.create-title-field').val('');
       $('.create-description-field').val('');
@@ -24,7 +23,6 @@ const createGoalHandler = function(map) {
 };
 
 const getMap = function(el, options) {
-  console.log("INTIALIZING");
   return new Promise(function(resolve, reject) {
     GoogleMapsLoader.load(function(google) {
       if (!google) {

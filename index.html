@@ -45,24 +45,7 @@
       <!-- Nav Ends Here -->
       <!-- Main Body Section Starts Here -->
       <main>
-        <h1>Bucket List</h1>
-        <div class='get-goal-container'>
-          <form id="get-goal-form">
-            <input type="submit" class="get-goal-btn btn btn-default" name="get-btn" value="Click here to Get goals!">
-          </form>
-        </div>
 
-        <div class="post-goal-container">
-          <form id="post-goal-form">
-            <input type="text" name="goal[title]" placeholder="Enter your goal!"><br>
-            <input type="text" name="goal[description]" placeholder="Enter your description!"><br>
-            <button type="submit" class="post-goal-btn" value="Click here to Post your goal!"></button><br>
-          </form>
-        </div>
-
-<!-- This is where handle bars is going to render each goal when "get goals" btn is clicked -->
-        <div id="content" class="content">
-        </div>
 
 
         <!-- Modals Start Here, sign-in specifically -->
@@ -156,17 +139,21 @@
               <h4 class="modal-title">Marker Information:</h4>
             </div>
             <div class="modal-body">
-              <div class="modal-goal-title">Goal title: </div>
-              <div class="modal-goal-description">Description: </div>
+
+
                 <div class='patch-goal-container'>
+                  <h4>If you'd like to update this goal, you have the option of updating its title and description below! Just click the 'Update Goal' button when you're done!</h4>
                   <form class="patch-goal-modal-form">
-                    <input class="click-title-field" type="text" name="goal[title]" placeholder="Enter your goal!">
-                    <input class="click-description-field" type="text" name="goal[description]" placeholder="Enter your description!">
+                    <label class="modal-goal-title">Goal title: </label><br>
+                    <input class="click-title-field" type="text" name="goal[title]" placeholder="Enter your goal!"><br>
+                    <label class="modal-goal-description">Description: </label><br>
+                    <input class="click-description-field" type="text" name="goal[description]" placeholder="Enter your description!"><br>
                     <button type="submit" class="patch-goal" value="Click here to Patch this goal">
                       Update Goal</button>
                   </form>
                 </div>
                 <div class='delete-goal-container'>
+                  <h4>If you'd like to delete this goal, just click the 'Delete Goal' button below.</h4>
                   <form class="delete-goal-modal-form">
                     <button type="submit" class="delete-goal" value="Click here to Delete this goal">
                       Delete Goal</button>
@@ -184,12 +171,14 @@
                 <h4 class="modal-title">Marker Information:</h4>
               </div>
               <div class="modal-body">
-                <div class="modal-goal-title">Goal title: </div>
-                <div class="modal-goal-description">Description: </div>
+                <!-- <div class="modal-goal-title">Goal title: </div> -->
                   <div class='post-goal-container'>
+                    <h4>In order to create a goal, enter the goal's relevant information below and click 'Create Goal'! Note: the 'title' field is required. A goal must have a title to be created. Goals do not require a description.</h4>
                     <form class="post-goal-modal-form">
-                      <input class="create-title-field" type="text" name="goal[title]" placeholder="Enter your goal!">
-                      <input class="create-description-field" type="text" name="goal[description]" placeholder="Enter your description!">
+                      <label class="modal-goal-title">Goal title:</label><br>
+                      <input class="create-title-field" type="text" name="goal[title]" placeholder="Enter your goal!"><br>
+                      <label class="modal-goal-description">Description: </label><br>
+                      <input class="create-description-field" type="text" name="goal[description]" placeholder="Enter your description!"><br>
                       <button type="submit" class="post-goal" value="Click here to Post this goal">
                         Create Goal</button>
                     </form>

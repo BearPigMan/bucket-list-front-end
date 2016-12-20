@@ -8,8 +8,7 @@ return $.ajax({
   url: app.host + 'sign-up',
   method: 'POST',
   data,
-
-});
+  });
 };
 
 const signIn = function(data) {
@@ -37,8 +36,8 @@ const signOut = function() {
   method: 'DELETE',
   headers: {
     Authorization: 'Token token=' + store.user.token,
-  },
-});
+    },
+  });
 };
 
 module.exports = {

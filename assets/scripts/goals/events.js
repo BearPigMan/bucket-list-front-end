@@ -31,12 +31,9 @@ const onPatchGoal =function(e) {
   };
 
 const getGoals = () => {
-  console.log("cool");
   api.getGoals()
   .then((data) => {
-    // add goals to map and local storage, set click handler on map
     data.goals.map(convertAndAdd);
-
     return localGoals.showAll();
   })
   .catch(ui.failure);
@@ -46,7 +43,6 @@ const onPostGoal = (e, coords) => {
   e.preventDefault();
   let data = getFormFields(e.target);
   data.goal.position = coords;
-  debugger;
   api.postGoal(data).then((data) => localGoals.create(data.goal)).catch(ui.failure);
 };
 
@@ -55,9 +51,7 @@ const onSignOut = () => {
 };
 
 const addHandlers = () => {
-  // set up click handler for submit button on update modal
   $('.patch-goal-modal-form').on('submit', onPatchGoal);
-  // set up click handler for delete button on update modal
   $('.delete-goal-modal-form').on('submit', onDeleteGoal);
 };
 

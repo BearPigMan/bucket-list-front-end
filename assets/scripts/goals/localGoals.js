@@ -4,13 +4,10 @@ const store = require('../store.js');
 const {convertAndAdd} = require('./goalToMarker.js');
 
 const create = (goal) => {
-  // console.log(goal);
   convertAndAdd(goal);
-  // console.log(store.goals)l
   return store.goals;
 };
 
-// id is expected to be string
 const destroy = (id) => {
   let index = store.goals.findIndex((goal) => id === goal.id);
   store.goals.splice(index, 1);
@@ -21,9 +18,7 @@ const showAll = () => {
 };
 
 const storeAll = (data) => {
-  // console.log(data);
   data.goals.map(convertAndAdd);
-  console.log(store.goals);
   return store.goals;
 };
 

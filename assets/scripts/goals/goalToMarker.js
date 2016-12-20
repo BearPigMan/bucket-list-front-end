@@ -13,7 +13,6 @@ const triggerModal = function(marker) {
   marker.addListener('click', function() {
     populateUpdateModal(marker);
     store.currentMarker = marker.id;
-    console.log(marker.id);
     $('#click-marker-modal').modal('show');
   });
   return marker;

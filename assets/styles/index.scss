@@ -2,10 +2,40 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
 
 main {
-    padding-top: 50px;
+  padding-top: 50px;
 };
 
 
-#map{
-  height:800px;
+#map {
+  height: 800px;
+};
+
+.delete-goal-container {
+  padding-top: 20px;
+};
+
+.patch-goal {
+  margin-top: 20px;
+};
+
+.post-goal {
+  margin-top: 20px;
+};
+
+.create-description-field {
+  height: 60px;
+  width: 550px;
+};
+
+.create-title-field {
+  width: 550px;
+};
+
+.click-description-field {
+  height: 60px;
+  width: 550px;
+};
+
+.click-title-field {
+  width: 550px;
 }

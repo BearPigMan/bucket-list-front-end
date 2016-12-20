@@ -3,13 +3,10 @@
 const store = require('../store.js');
 
 const success = (data) => {
-  console.log(data);
 };
 
 const signInSuccess = (data) => {
-  // save user token
   store.user = data.user;
-  // change dropdown buttons
   $('.sign-in-btn').hide();
   $('.sign-up-btn').hide();
   $('.auth-dropdown-toggle').text(store.user.email);
@@ -19,7 +16,6 @@ const signInSuccess = (data) => {
   $('#sign-out-btn').show();
   $('#sign-in-modal').modal('hide');
   $('#sign-up-modal').modal('hide');
-  // clear modal fields for better security
   $('.sign-in-form input').val('');
   $('.sign-up-form input').val('');
   success(data);
@@ -46,8 +42,8 @@ const changePasswordFailure = (error) => {
 };
 
 const removeMarkers = () => {
-  Object.keys(store.goals).map(id => store.goals[id].setMap(null))
-}
+  Object.keys(store.goals).map(id => store.goals[id].setMap(null));
+};
 
 const signOutSuccess = (data) => {
   $('.change-pw-btn').hide();
@@ -57,7 +53,6 @@ const signOutSuccess = (data) => {
   $('.sign-up-btn').show();
   $('.auth-dropdown-toggle').text("Sign up/Sign in");
   removeMarkers();
-
   success(data);
 };
 
