@@ -10,46 +10,50 @@ const store = require('../store');
 const onDeleteGoal = function(e) {
   e.preventDefault();
   let id = store.currentMarker;
-  api.deleteGoal(id)
-    .then(() => {
-      store.goals[id].setMap(null);
-    })
-    .catch(ui.failure);
+  api.deleteGoal(id).then(() => {
+    store.goals[id].setMap(null);
+  }).catch(ui.failure);
   $('#click-marker-modal').modal('hide');
 };
 
-const onPatchGoal =function(e) {
+const onPatchGoal = function(e) {
   e.preventDefault();
   let data = getFormFields(e.target);
   let id = store.currentMarker;
-  api.patchGoal(id, data)
-    .then(() => {
-      localGoals.update(id, data);
-      $('#click-marker-modal').modal('hide');
-    })
-    .catch(ui.patchFailure);
-  };
+  api.patchGoal(id, data).then(() => {
+    if (data.goal.title.length < 1) {
+      throw(error)
+    }
+    localGoals.update(id, data);
+    $('#click-marker-modal').modal('hide');
+  }).catch(ui.patchFailure);
+};
 
 const getGoals = () => {
-  api.getGoals()
-  .then((data) => {
+  api.getGoals().then((data) => {
     data.goals.map(convertAndAdd);
     // grab postition of first goal and center map there
-    if (data.goals.length > 0)
-      {
-        let firstPosition = Object.values(localGoals.showAll())[0].data.position;
-        map.setCenter(firstPosition);
-      }
+    if (data.goals.length > 0) {
+      let firstPosition = Object.values(localGoals.showAll())[0].data.position;
+      map.setCenter(firstPosition);
+    }
     return localGoals.showAll();
-  })
-  .catch(ui.failure);
+  }).catch(ui.failure);
 };
 
 const onPostGoal = (e, coords) => {
   e.preventDefault();
   let data = getFormFields(e.target);
+  if (data.goal.title.length < 1) {
+    $('.response-container').text("There has been an error updating your goal! In order to update this goal, you need to include a title. You do not need to include a description, but a title is required.");
+    $('.response-container').fadeOut(10000);
+    return
+  }
   data.goal.position = coords;
-  api.postGoal(data).then((data) => localGoals.create(data.goal)).catch(ui.postFailure);
+  api.postGoal(data).then((data) => {
+
+    localGoals.create(data.goal)
+  }).catch(ui.postFailure);
 };
 
 const onSignOut = () => {
@@ -63,6 +67,9 @@ const onSignOut = () => {
 const onSubmit = function(e, coords) {
   e.preventDefault();
   onPostGoal(e, coords);
+  if (getFormFields(e.target).goal.title.length < 1) {
+    return;
+  }
   $(e.target).off('submit');
   $('.create-title-field').val('');
   $('.create-description-field').val('');
