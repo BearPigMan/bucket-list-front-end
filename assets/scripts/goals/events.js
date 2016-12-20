@@ -12,31 +12,30 @@ const getGoals = () => {
   console.log("cool");
   api.getGoals()
   .then((data) => {
+    // add goals to map and local storage, set click handler on map
     data.goals.map(convertAndAdd);
+
+    // set up click handler for submit button on update modal
     $('.patch-goal-modal-form').on('submit', function(e) {
       e.preventDefault();
       let data = getFormFields(e.target);
       let id = store.currentMarker;
-      debugger;
       api.patchGoal(id, data)
         .then(() => {
           localGoals.update(id, data);
-        })
-        .then(() => {
-          // $('.patch-goal-modal-form').off('submit');
           $('#click-marker-modal').modal('hide');
         })
         .catch(ui.failure);
       });
+      // set up click handler for delete button on update modal
       $('.delete-goal-modal-form').on('submit', function(e) {
         e.preventDefault();
         let id = store.currentMarker;
         api.deleteGoal(id)
           .then(() => {
-          store.goals[id].setMap(null);
-          // $('.delete-goal-modal-form').off('submit');
-        })
-        .catch(ui.failure);
+            store.goals[id].setMap(null);
+          })
+          .catch(ui.failure);
         $('#click-marker-modal').modal('hide');
       });
     return localGoals.showAll();
