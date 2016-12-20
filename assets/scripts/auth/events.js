@@ -23,6 +23,9 @@ const onSignIn = function(e) {
   api.signIn(data).then(ui.signInSuccess).then(() => {
     goals.getGoals();
     })
+    .then(() => {
+      goals.addHandlers();
+    })
     .catch(ui.signInFailure);
 };
 

@@ -11,7 +11,7 @@ $(() => {
 });
 
 const authEvents = require('./auth/events.js');
-const goalEvents = require('./goals/events.js');
+// const goalEvents = require('./goals/events.js');
 
 $(() => {
 
@@ -25,12 +25,12 @@ $(() => {
   })
   .then(() => {
     authEvents.addAuthHandlers();
-    goalEvents.addHandlers();
+    // goalEvents.addHandlers();
   })
-  .then(() => {
-    $('#sign-in-password').val('1');
-    $('#sign-in-email').val('test@test.com');
-    $('.sign-in-form').trigger('submit');
-    return undefined;
-  });
+  // .then(() => {
+  //   $('#sign-in-password').val('1');
+  //   $('#sign-in-email').val('test@test.com');
+  //   $('.sign-in-form').trigger('submit');
+  //   return undefined;
+  // });
 });

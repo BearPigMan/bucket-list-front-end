@@ -1,27 +1,27 @@
 'use strict';
 
 const GoogleMapsLoader = require('google-maps');
-const {onPostGoal} = require('../goals/events');
+// const {onPostGoal} = require('../goals/events');
 // only for common js environments
 GoogleMapsLoader.KEY = 'AIzaSyAno98KEm1S4ABBzN4FMRxPtMT58JpAKvk';
 
-const createGoalHandler = function(map) {
-  let handler = map.addListener('click', function(event) {
-    let coords = {
-      lat: event.latLng.lat(),
-      lng: event.latLng.lng()
-    };
-    $('#create-marker-modal').modal().find('form').on('submit', (e) => {
-      onPostGoal(e, coords);
-      console.log(e);
-      $(e.target).off('submit');
-      $('.create-title-field').val('');
-      $('.create-description-field').val('');
-      $('#create-marker-modal').modal('hide');
-    });
-  });
-  return map;
-};
+// const createGoalHandler = function(map) {
+//   let handler = map.addListener('click', function(event) {
+//     let coords = {
+//       lat: event.latLng.lat(),
+//       lng: event.latLng.lng()
+//     };
+//     $('#create-marker-modal').modal().find('form').on('submit', (e) => {
+//       onPostGoal(e, coords);
+//       console.log(e);
+//       $(e.target).off('submit');
+//       $('.create-title-field').val('');
+//       $('.create-description-field').val('');
+//       $('#create-marker-modal').modal('hide');
+//     });
+//   });
+//   return map;
+// };
 
 const getMap = function(el, options) {
   console.log("INTIALIZING");
@@ -32,7 +32,7 @@ const getMap = function(el, options) {
       }
       let map = new google.maps.Map(el, options);
       window.map = map;
-      createGoalHandler(map);
+      // createGoalHandler(map);
       resolve(map);
 
     });
@@ -40,6 +40,6 @@ const getMap = function(el, options) {
 };
 
 module.exports = {
-  createGoalHandler,
+  // createGoalHandler,
   getMap,
 };

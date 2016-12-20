@@ -56,7 +56,23 @@ const onSignOut = () => {
   localGoals.clearAll();
 };
 
+const onMapClick = function(event) {
+  let coords = {
+    lat: event.latLng.lat(),
+    lng: event.latLng.lng()
+  };
+  $('#create-marker-modal').modal().find('form').on('submit', (e) => {
+    onPostGoal(e, coords);
+    console.log(e);
+    $(e.target).off('submit');
+    $('.create-title-field').val('');
+    $('.create-description-field').val('');
+    $('#create-marker-modal').modal('hide');
+  });
+};
+
 const addHandlers = () => {
+  map.addListener('click', onMapClick);
   // set up click handler for submit button on update modal
   $('.patch-goal-modal-form').on('submit', onPatchGoal);
   // set up click handler for delete button on update modal
@@ -68,4 +84,5 @@ module.exports = {
   getGoals,
   onPostGoal,
   onSignOut,
+  onMapClick
 };
