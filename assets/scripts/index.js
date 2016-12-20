@@ -14,8 +14,7 @@ const authEvents = require('./auth/events.js');
 const goalEvents = require('./goals/events.js');
 
 $(() => {
-  authEvents.addAuthHandlers();
-  goalEvents.addHandlers();
+
 
   getMap(document.querySelector('#map'), {
     center: {
@@ -23,10 +22,15 @@ $(() => {
       lng: 18.070
     },
     zoom: 10
-  }).then(map => {
+  })
+  .then(() => {
+    authEvents.addAuthHandlers();
+    goalEvents.addHandlers();
+  })
+  .then(() => {
     $('#sign-in-password').val('1');
     $('#sign-in-email').val('test@test.com');
     $('.sign-in-form').trigger('submit');
-
+    return undefined;
   });
 });
