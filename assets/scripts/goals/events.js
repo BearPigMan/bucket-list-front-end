@@ -35,8 +35,11 @@ const getGoals = () => {
   .then((data) => {
     data.goals.map(convertAndAdd);
     // grab postition of first goal and center map there
-    let firstPosition = Object.values(localGoals.showAll())[0].data.position;
-    map.setCenter(firstPosition);
+    if (data.goals.length > 0)
+      {
+        let firstPosition = Object.values(localGoals.showAll())[0].data.position;
+        map.setCenter(firstPosition);
+      }
     return localGoals.showAll();
   })
   .catch(ui.failure);
