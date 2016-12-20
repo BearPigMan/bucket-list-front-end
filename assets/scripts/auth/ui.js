@@ -15,6 +15,7 @@ const signInSuccess = (data) => {
   $('#sign-up-modal').modal('hide');
   $('.sign-in-form input').val('');
   $('.sign-up-form input').val('');
+  $('.auth-instruction').fadeOut(500);
 };
 
 const failure = (error) => {
@@ -52,6 +53,7 @@ const signOutSuccess = (data) => {
   $('.click-title-field').val('');
   $('.click-description-field').val('');
   $('.auth-dropdown-toggle').text("Sign up/Sign in");
+  $('.auth-instruction').fadeIn(500);
   removeMarkers();
 };
 
