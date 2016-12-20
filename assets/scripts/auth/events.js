@@ -56,6 +56,15 @@ const addAuthHandlers = () => {
   $('.sign-in-form').on('submit', onSignIn);
   $('.change-password-form').on('submit', onChangePassword);
   $('#sign-out-btn').on('click', onSignOut);
+  $('#sign-up-modal').on('hidden.bs.modal', function(){
+    $('.sign-up-form input').val('');
+  });
+  $('#sign-in-modal').on('hidden.bs.modal', function(){
+    $('.sign-in-form input').val('');
+  });
+  $('#change-password-modal').on('hidden.bs.modal', function(){
+    $('.change-password-form input').val('');
+  });
 };
 
 module.exports = {

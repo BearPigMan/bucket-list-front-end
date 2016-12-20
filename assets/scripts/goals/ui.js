@@ -1,17 +1,28 @@
 'use strict';
 
+$('.post-response-container').hide();
+$('.patch-response-container').hide();
+
 const failure = (error) => {
   console.log(error);
 };
 
 const patchFailure = (error) => {
-  $('.response-container').text("There has been an error updating your goal! In order to update this goal, you need to include a title. You do not need to include a description, but a title is required.");
-  $('.response-container').fadeOut(10000);
+  $('.patch-response-container').show();
+  $('#click-marker-modal').on('hidden.bs.modal', function(){
+    $('.patch-response-container').hide();
+    $('.click-title-field').val('');
+    $('.click-description-field').val('');
+  });
 };
 
 const postFailure = (error) => {
-  $('.response-container').text("There has been an error creating your goal! In order to create a goal, you need to include a title for the goal. You do not need to include a description, but a title is required");
-  $('.response-container').fadeOut(10000);
+  $('.post-response-container').show();
+  $('#create-marker-modal').on('hidden.bs.modal', function(){
+    $('.post-response-container').hide();
+    $('.create-title-field').val('');
+    $('.create-description-field').val('');
+  });
 };
 
 module.exports = {

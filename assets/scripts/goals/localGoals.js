@@ -5,6 +5,7 @@ const {convertAndAdd} = require('./goalToMarker.js');
 
 const create = (goal) => {
   convertAndAdd(goal);
+  $('.post-response-container').hide();
   return store.goals;
 };
 

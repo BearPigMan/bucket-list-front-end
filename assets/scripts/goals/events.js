@@ -22,7 +22,8 @@ const onPatchGoal = function(e) {
   let id = store.currentMarker;
   api.patchGoal(id, data).then(() => {
     if (data.goal.title.length < 1) {
-      throw(error)
+      ui.patcbFailure("");
+      return
     }
     localGoals.update(id, data);
     $('#click-marker-modal').modal('hide');
@@ -45,8 +46,7 @@ const onPostGoal = (e, coords) => {
   e.preventDefault();
   let data = getFormFields(e.target);
   if (data.goal.title.length < 1) {
-    $('.response-container').text("There has been an error updating your goal! In order to update this goal, you need to include a title. You do not need to include a description, but a title is required.");
-    $('.response-container').fadeOut(10000);
+    ui.postFailure("");
     return
   }
   data.goal.position = coords;
