@@ -17,31 +17,6 @@ const triggerModal = function(marker) {
     store.currentMarker = marker.id;
     console.log(marker.id);
     $('#click-marker-modal').modal('show');
-
-    // $('.patch-goal-modal-form').on('submit', function(e) {
-    //   e.preventDefault();
-    //   let data = getFormFields(e.target);
-    //   let id = marker.id;
-    //   api.patchGoal(id, data)
-    //     .then((id, data) => {
-    //       localGoals.update(id, data);
-    //     })
-    //     .then(() => {
-    //       $('.patch-goal-modal-form').off('submit');
-    //       $('#click-marker-modal').modal('hide');
-    //     })
-    //     .catch(ui.failure);
-    //   });
-      // $('#click-marker-modal').modal('show');
-      // $('.delete-goal-modal-form').on('submit', function(e) {
-      //   e.preventDefault();
-      //   api.deleteGoal(marker.id).then(() => {
-      //     store.goals[marker.id].setMap(null);
-      //     $('.delete-goal-modal-form').off('submit');
-      //   })
-      //   .catch(ui.failure);
-      //   $('#click-marker-modal').modal('hide');
-      // });
   });
   return marker;
 };

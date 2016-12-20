@@ -7,6 +7,16 @@ const localGoals = require('./localGoals.js');
 const {convertAndAdd} = require('./goalToMarker.js');
 const store = require('../store');
 
+const onPatchGoal = function(e) {
+  e.preventDefault();
+  let id = store.currentMarker;
+  api.deleteGoal(id)
+    .then(() => {
+      store.goals[id].setMap(null);
+    })
+    .catch(ui.failure);
+  $('#click-marker-modal').modal('hide');
+};
 
 const getGoals = () => {
   console.log("cool");
@@ -28,16 +38,7 @@ const getGoals = () => {
         .catch(ui.failure);
       });
       // set up click handler for delete button on update modal
-      $('.delete-goal-modal-form').on('submit', function(e) {
-        e.preventDefault();
-        let id = store.currentMarker;
-        api.deleteGoal(id)
-          .then(() => {
-            store.goals[id].setMap(null);
-          })
-          .catch(ui.failure);
-        $('#click-marker-modal').modal('hide');
-      });
+      $('.delete-goal-modal-form').on('submit', onPatchGoal);
     return localGoals.showAll();
   })
   .catch(ui.failure);
@@ -51,25 +52,11 @@ const onPostGoal = (e, coords) => {
 };
 
 
-const onPatchGoal = (e) => {
-  e.preventDefault();
-  let data = getFormFields(e.target);
-  // pull id data attribute from form
-  let id = $(e.target).data('id');
-  api.patchGoal(id, data).then(ui.patchGoalSuccess).catch(ui.failure);
-};
+
 
 const onSignOut = () => {
   localGoals.clearAll();
 };
-
-// const onPatchGoal = (e) => {
-//   e.preventDefault();
-//   let data = getFormFields(e.target);
-//   // pull id data attribute from form
-//   let id = $(e.target).data('id');
-//   api.patchGoal(id, data).then(ui.patchGoalSuccess).catch(ui.failure);
-// };
 
 const onDeleteGoal = (e) => {
   e.preventDefault();
