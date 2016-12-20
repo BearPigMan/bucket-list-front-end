@@ -1,12 +1,7 @@
 'use strict';
 
-const showGoalsTemplate = require('../templates/goal-listing.handlebars');
-const localGoals = require('./localGoals.js');
-
-const getGoalsSuccess = (goals) => {
-  $('#content').html(showGoalsTemplate(goals));
+const failure = (error) => {
+  console.log(error);
 };
 
-module.exports = {
-  getGoalsSuccess,
-};
+module.exports = {failure};

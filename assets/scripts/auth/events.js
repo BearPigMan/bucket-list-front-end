@@ -20,7 +20,11 @@ const onSignIn = function(e) {
   let data = getFormFields(this);
   api.signIn(data).then(ui.signInSuccess).then(() => {
     goals.getGoals();
-  }).catch(ui.signInFailure);
+    })
+    .then(() => {
+      goals.addHandlers();
+    })
+    .catch(ui.signInFailure);
 };
 
 const onChangePassword = function(e) {
@@ -32,6 +36,7 @@ const onChangePassword = function(e) {
 const onSignOut = function(e) {
   e.preventDefault();
   api.signOut().then(ui.signOutSuccess).catch(ui.failure);
+  goals.offMapClick();
 };
 
 const addAuthHandlers = () => {
