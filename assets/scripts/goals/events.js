@@ -71,6 +71,10 @@ const onMapClick = function(event) {
   });
 };
 
+const offMapClick = function() {
+  map.removeListener('click');
+};
+
 const addHandlers = () => {
   map.addListener('click', onMapClick);
   // set up click handler for submit button on update modal
@@ -84,5 +88,6 @@ module.exports = {
   getGoals,
   onPostGoal,
   onSignOut,
-  onMapClick
+  onMapClick,
+  offMapClick
 };
