@@ -68,7 +68,6 @@ const onMapClick = function(event) {
     lat: event.latLng.lat(),
     lng: event.latLng.lng()
   };
-  debugger;
   $('#create-marker-modal').modal().find('form').on('submit', (e, coords) => {
     onMarkerClick(e, coords);
   });
