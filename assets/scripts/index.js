@@ -18,8 +18,8 @@ $(() => {
 
   getMap(document.querySelector('#map'), {
     center: {
-      lat: 59.325,
-      lng: 18.070
+      lat: 42.2201,
+      lng: -71.0589
     },
     zoom: 10
   })
