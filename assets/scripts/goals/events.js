@@ -53,10 +53,9 @@ const onSignOut = () => {
   localGoals.clearAll();
 };
 
-const onMarkerClick = function(e, coords) {
+const onSubmit = function(e, coords) {
   e.preventDefault();
   onPostGoal(e, coords);
-  console.log(e);
   $(e.target).off('submit');
   $('.create-title-field').val('');
   $('.create-description-field').val('');
@@ -68,8 +67,8 @@ const onMapClick = function(event) {
     lat: event.latLng.lat(),
     lng: event.latLng.lng()
   };
-  $('#create-marker-modal').modal().find('form').on('submit', (e, coords) => {
-    onMarkerClick(e, coords);
+  $('#create-marker-modal').modal().find('form').on('submit', (e) => {
+    onSubmit(e, coords);
   });
 };
 
