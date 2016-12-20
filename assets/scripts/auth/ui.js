@@ -2,9 +2,6 @@
 
 const store = require('../store.js');
 
-const success = (data) => {
-};
-
 const signInSuccess = (data) => {
   store.user = data.user;
   $('.sign-in-btn').hide();
@@ -18,7 +15,6 @@ const signInSuccess = (data) => {
   $('#sign-up-modal').modal('hide');
   $('.sign-in-form input').val('');
   $('.sign-up-form input').val('');
-  success(data);
 };
 
 const failure = (error) => {
@@ -53,12 +49,10 @@ const signOutSuccess = (data) => {
   $('.sign-up-btn').show();
   $('.auth-dropdown-toggle').text("Sign up/Sign in");
   removeMarkers();
-  success(data);
 };
 
 module.exports = {
   failure,
-  success,
   signInSuccess,
   signInFailure,
   changePasswordSuccess,
