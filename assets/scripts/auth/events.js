@@ -22,7 +22,8 @@ const onSignIn = function(e) {
   let data = getFormFields(this);
   api.signIn(data).then(ui.signInSuccess).then(() => {
     goals.getGoals();
-  }).catch(ui.signInFailure);
+    })
+    .catch(ui.signInFailure);
 };
 
 const onChangePassword = function(e) {

@@ -36,7 +36,7 @@ const getGoals = () => {
   .then((data) => {
     // add goals to map and local storage, set click handler on map
     data.goals.map(convertAndAdd);
-
+    let firstPosition = Object.values(localGoals.showAll())[0].data.position);
     return localGoals.showAll();
   })
   .catch(ui.failure);
