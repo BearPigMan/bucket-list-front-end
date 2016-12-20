@@ -2,7 +2,7 @@
 
 const setAPIOrigin = require('../../lib/set-api-origin');
 const config = require('./config');
-const getMap = require('./maps/Map');
+const mapControl = require('./maps/Map');
 // const {getGoals} = require('./goals/api');
 // const {convertToMarker} = require('./goals/goalToMarker');
 
@@ -16,7 +16,7 @@ const goalEvents = require('./goals/events.js');
 $(() => {
 
 
-  getMap(document.querySelector('#map'), {
+  mapControl.getMap(document.querySelector('#map'), {
     center: {
       lat: 42.2201,
       lng: -71.0589

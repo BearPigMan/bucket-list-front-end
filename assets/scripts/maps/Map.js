@@ -39,4 +39,7 @@ const getMap = function(el, options) {
   });
 };
 
-module.exports = getMap;
+module.exports = {
+  createGoalHandler,
+  getMap,
+};
