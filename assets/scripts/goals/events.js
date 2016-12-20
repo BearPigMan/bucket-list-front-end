@@ -37,10 +37,6 @@ const getGoals = () => {
     // add goals to map and local storage, set click handler on map
     data.goals.map(convertAndAdd);
 
-    // set up click handler for submit button on update modal
-    $('.patch-goal-modal-form').on('submit', onPatchGoal);
-      // set up click handler for delete button on update modal
-      $('.delete-goal-modal-form').on('submit', onDeleteGoal);
     return localGoals.showAll();
   })
   .catch(ui.failure);
@@ -58,12 +54,10 @@ const onSignOut = () => {
 };
 
 const addHandlers = () => {
-  // $('#get-goal-form').on('submit', onGetGoals);
-  // $('#post-goal-form').on('submit', onPostGoal);
-  // $('#content').on('submit', '.patch-goal-form', onPatchGoal);
-  // $('#content').on('click', '.delete-goal', onDeleteGoal);
-  // $('.patch-goal-modal-form').on('submit', onPatchGoal);
-  // $('.delete-goal-modal-form').on('submit', onDeleteGoal);
+  // set up click handler for submit button on update modal
+  $('.patch-goal-modal-form').on('submit', onPatchGoal);
+  // set up click handler for delete button on update modal
+  $('.delete-goal-modal-form').on('submit', onDeleteGoal);
 };
 
 module.exports = {
@@ -71,6 +65,4 @@ module.exports = {
   getGoals,
   onPostGoal,
   onSignOut,
-  // onPatchGoal,
-  onDeleteGoal
 };
