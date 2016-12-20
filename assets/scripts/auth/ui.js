@@ -55,10 +55,15 @@ const signOutSuccess = (data) => {
   removeMarkers();
 };
 
+const signUpFailure = (error) => {
+  $('.signup-modal-title').text('Sign up failed -- Passwords must match');
+};
+
 module.exports = {
   failure,
   signInSuccess,
   signInFailure,
+  signUpFailure,
   changePasswordSuccess,
   changePasswordFailure,
   signOutSuccess

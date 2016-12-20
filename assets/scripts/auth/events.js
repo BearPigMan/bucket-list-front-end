@@ -9,7 +9,10 @@ const onSignUp = function(e) {
   e.preventDefault();
   let data = getFormFields(this);
   let credentials = data;
-  api.signUp(data)
+  if (data.credentials.password !== data.credentials.confirm_password) {
+    ui.signUpFailure();
+  } else {
+    api.signUp(data)
     .then(function() {
       return api.signIn(credentials);
     })
@@ -19,8 +22,8 @@ const onSignUp = function(e) {
     })
     .then(() => {
       goals.addHandlers();
-    })
-    .catch(ui.failure);
+    });
+  }
 };
 
 const onSignIn = function(e) {
