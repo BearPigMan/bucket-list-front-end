@@ -73,6 +73,8 @@ const onMapClick = function(event) {
 
 const offMapClick = function() {
   google.maps.event.removeListener(mapListener);
+  $('.patch-goal-modal-form').off('submit');
+  $('.delete-goal-modal-form').off('submit');
 };
 
 const addHandlers = () => {
