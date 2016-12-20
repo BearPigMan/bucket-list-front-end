@@ -34,7 +34,7 @@ const getGoals = () => {
         api.deleteGoal(id)
           .then(() => {
           store.goals[id].setMap(null);
-          $('.delete-goal-modal-form').off('submit');
+          // $('.delete-goal-modal-form').off('submit');
         })
         .catch(ui.failure);
         $('#click-marker-modal').modal('hide');
