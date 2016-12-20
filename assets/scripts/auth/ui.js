@@ -15,6 +15,8 @@ const signInSuccess = (data) => {
   $('#sign-up-modal').modal('hide');
   $('.sign-in-form input').val('');
   $('.sign-up-form input').val('');
+  $('.sign-in-modal-title').text('Sign-in');
+  $('.signup-modal-title').text('Sign up');
 };
 
 const failure = (error) => {
@@ -30,6 +32,7 @@ const signInFailure = (error) => {
 const changePasswordSuccess = () => {
   $('#change-password-modal').modal('hide');
   $('.change-password-form input').val('');
+  $('.change-password-modal-title').text('Change password');
 };
 
 const changePasswordFailure = (error) => {
@@ -43,6 +46,7 @@ const removeMarkers = () => {
 
 const signOutSuccess = (data) => {
   $('.change-pw-btn').hide();
+  $('.change-password-form input').val('');
   $('#sign-out-btn').hide();
   $('.create-med-btn').addClass('hidden');
   $('.sign-in-btn').show();
