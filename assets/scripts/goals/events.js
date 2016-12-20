@@ -27,7 +27,7 @@ const onPatchGoal =function(e) {
       localGoals.update(id, data);
       $('#click-marker-modal').modal('hide');
     })
-    .catch(ui.failure);
+    .catch(ui.patchFailure);
   };
 
 const getGoals = () => {
@@ -46,11 +46,15 @@ const onPostGoal = (e, coords) => {
   e.preventDefault();
   let data = getFormFields(e.target);
   data.goal.position = coords;
-  api.postGoal(data).then((data) => localGoals.create(data.goal)).catch(ui.failure);
+  api.postGoal(data).then((data) => localGoals.create(data.goal)).catch(ui.postFailure);
 };
 
 const onSignOut = () => {
   localGoals.clearAll();
+  // $('.create-title-field').val('');
+  // $('.create-description-field').val('');
+  // $('.click-title-field').val('');
+  // $('.click-description-field').val('');
 };
 
 const onSubmit = function(e, coords) {

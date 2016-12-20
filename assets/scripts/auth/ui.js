@@ -51,6 +51,10 @@ const signOutSuccess = (data) => {
   $('.create-med-btn').addClass('hidden');
   $('.sign-in-btn').show();
   $('.sign-up-btn').show();
+  $('.create-title-field').val('');
+  $('.create-description-field').val('');
+  $('.click-title-field').val('');
+  $('.click-description-field').val('');
   $('.auth-dropdown-toggle').text("Sign up/Sign in");
   removeMarkers();
   success(data);
