@@ -5,13 +5,40 @@ const api = require('./api.js');
 const ui = require('./ui.js');
 const localGoals = require('./localGoals.js');
 const {convertAndAdd} = require('./goalToMarker.js');
+const store = require('../store');
+
 
 const getGoals = () => {
   console.log("cool");
   api.getGoals()
   .then((data) => {
     data.goals.map(convertAndAdd);
-    debugger;
+    $('.patch-goal-modal-form').on('submit', function(e) {
+      e.preventDefault();
+      let data = getFormFields(e.target);
+      let id = store.currentMarker;
+      debugger;
+      api.patchGoal(id, data)
+        .then(() => {
+          localGoals.update(id, data);
+        })
+        .then(() => {
+          // $('.patch-goal-modal-form').off('submit');
+          $('#click-marker-modal').modal('hide');
+        })
+        .catch(ui.failure);
+      });
+      $('.delete-goal-modal-form').on('submit', function(e) {
+        e.preventDefault();
+        let id = store.currentMarker;
+        api.deleteGoal(id)
+          .then(() => {
+          store.goals[id].setMap(null);
+          $('.delete-goal-modal-form').off('submit');
+        })
+        .catch(ui.failure);
+        $('#click-marker-modal').modal('hide');
+      });
     return localGoals.showAll();
   })
   .catch(ui.failure);
