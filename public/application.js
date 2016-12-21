@@ -154,7 +154,7 @@ webpackJsonp([0],[
 
 	var config = {
 	  apiOrigins: {
-	    production: 'https://ga-wdi-boston.herokuapp.com'
+	    production: 'https://bucket-list-back-end.herokuapp.com/'
 	  }
 	};
 
