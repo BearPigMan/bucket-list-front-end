@@ -2,7 +2,7 @@ Bucket-List-Front-End
 ![bucket-list](http://www.ratemovieshere.com/img/poster/thebucketlist.jpg)
 
 Link to deployed front end: https://bearpigman.github.io/bucket-list-front-end/
-Link to back end repo: https://github.com/BearPigMan/bucket-list-back-end/tree/location
+Link to back end repo: https://github.com/BearPigMan/bucket-list-back-end/tree/master
 
 Our Project is a Bucket List app, designed for keeping track of your goals located around the world. Your data is private, and users can access their saved goals visually.
 
