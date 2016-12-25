@@ -4,7 +4,16 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 main {
   padding-top: 50px;
 };
-
+#pac-input {
+        background-color: #fff;
+        font-family: Roboto;
+        font-size: 15px;
+        font-weight: 300;
+        margin-left: 12px;
+        padding: 0 11px 0 13px;
+        text-overflow: ellipsis;
+        width: 300px;
+      };
 .auth-instruction {
   font-family: cursive;
   padding-bottom: 15px;
@@ -19,8 +28,11 @@ main {
   color: red;
 };
 
+
 #map {
-  height: 800px;
+  position: fixed;
+  height: 100vh;
+  // top:50px;
 };
 
 .delete-goal-container {
