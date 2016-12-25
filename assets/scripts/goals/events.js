@@ -96,7 +96,7 @@ const addHandlers = () => {
   window.mapListener = map.addListener('click', onMapClick);
   // set up click handler for submit button on update modal
   $('.patch-goal-modal-form').on('submit', onPatchGoal);
-  $('.delete-goal-modal-form').on('submit', onDeleteGoal);
+  $('.delete-goal-button').on('click', onDeleteGoal);
 };
 
 module.exports = {

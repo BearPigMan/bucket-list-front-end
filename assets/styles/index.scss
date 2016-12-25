@@ -1,19 +1,14 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
+// @import './variables';
+@import './paper';
+
 
 main {
-  padding-top: 50px;
+  // padding-top: 50px;
 };
-#pac-input {
-        background-color: #fff;
-        font-family: Roboto;
-        font-size: 15px;
-        font-weight: 300;
-        margin-left: 12px;
-        padding: 0 11px 0 13px;
-        text-overflow: ellipsis;
-        width: 300px;
-      };
+
+
 .auth-instruction {
   font-family: cursive;
   padding-bottom: 15px;
@@ -28,18 +23,17 @@ main {
   color: red;
 };
 
-
 #map {
-  position: fixed;
-  height: 100vh;
-  // top:50px;
+  // position: fixed;
+  top:63px;
+  height: 800px;
 };
 
 .delete-goal-container {
   padding-top: 20px;
 };
 
-.patch-goal {
+.patch-goal, .delete-goal-button {
   margin-top: 20px;
 };
 
@@ -69,3 +63,59 @@ main {
   color: red;
   border-color: black;
 };
+
+#pac-input {
+//   background-color: rgba(0, 0, 0, 0.79);
+//   // font-family: Roboto;
+//   color:white;
+//   border:none;
+//   font-size: 15px;
+//   font-weight: 300;
+  margin-top:15px;
+//   margin-left: 12px;
+//   padding: 3px 11px 3px 13px;
+//   text-overflow: ellipsis;
+  width: 300px;
+}
+//
+// #pac-input:focus {
+//   border-color: #4d90fe;
+// }
+//
+// .pac-container {
+//   // font-family: Roboto;
+//   background-color: rgba(0, 0, 0, 0.79);
+//
+// }
+//
+// .pac-item {
+//   padding:5px;
+//   // color: white;
+// }
+//
+// .pac-item-selected, .pac-item:hover {
+//   background-color: rgba(255, 247, 247, 0.26);
+// }
+.pac-container:after {
+    /* Disclaimer: not needed to show 'powered by Google' if also a Google Map is shown */
+
+    background-image: none !important;
+    height: 0px;
+}
+// .pac-item-query {
+//   color: white;
+// }
+//
+// #type-selector {
+//
+//
+//   color: #fff;
+//   background-color: #4d90fe;
+//   padding: 5px 11px 0;
+// }
+//
+// #type-selector label {
+//   font-family: Roboto;
+//   font-size: 13px;
+//   font-weight: 300;
+// }
