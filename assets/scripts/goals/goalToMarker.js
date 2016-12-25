@@ -19,18 +19,14 @@ const triggerModal = function(marker) {
 };
 
 const convertToMarker = function(goal) {
-  let marker = new google.maps.Marker({data: goal, id: goal.id, position:       goal.position, map: map});
+  let marker = new google.maps.Marker({data: goal, id: goal.id, position: goal.position, map: window.map});
   return marker;
 };
 
-const addToStore = function(markerGoal) {
-  store.goals[markerGoal.id] = markerGoal;
-  return markerGoal;
-};
-
-const convertAndAdd = function(goal) {
-  addToStore(triggerModal(convertToMarker(goal)));
-};
+function convertAndAdd(goal) {
+  store.goals[goal.id] = triggerModal(convertToMarker(goal));
+  return goal;
+}
 
 module.exports = {
   convertAndAdd
