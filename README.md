@@ -1,8 +1,12 @@
 Bucket-List-Front-End
 ![bucket-list](http://www.ratemovieshere.com/img/poster/thebucketlist.jpg)
 
+# LINKS #
+
 Link to deployed front end: https://bearpigman.github.io/bucket-list-front-end/
 Link to back end repo: https://github.com/BearPigMan/bucket-list-back-end/tree/master
+
+# DESCRIPTION #
 
 Our Project is a Bucket List app, designed for keeping track of your goals located around the world. Your data is private, and users can access their saved goals visually.
 
@@ -30,6 +34,10 @@ After getting a very basic CRUD application with no styling to speak of, we star
 * Working with handlebars (in a previous iteration of the app) to get data to appear visually
 * Working with the Maps API and their approach to interacting with the DOM
 * Encountering circular dependencies and saving data to a unique API object type
+
+# UNSOLVED PROBLEMS #
+
+We have a search bar that we would like to implement, and to populate a set of markers based on search. We had originally planned to give users the option of setting data as "public", so that they can share goals with other users.
 
 # INSTALLATION #
 
