@@ -11,17 +11,21 @@
     </head>
 
     <!-- Body Starts Here -->
-    <body class="container-fluid">
+    <body>
+      <input id="pac-input" class="controls" type="text" placeholder="Search ....">
+
       <div id="map"></div>
 
       <!-- Nav Starts Here -->
       <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container">
           <div class="navbar-header">
-            <a class="navbar-brand" href='#'>Bucket List - By Team BearPigMan</a>
+            <a class="navbar-brand" href='#'>Bucket List</a>
+
           </div>
 
           <div id="navbar" class="navbar-collapse collapse">
+
             <ul class="nav navbar-nav navbar-right" id="navbar-right-side">
               <li class="auth-dropdown dropdown">
                 <a href="#" class="auth-dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sign up/Sign in <span class="caret"></span></a>
@@ -41,7 +45,6 @@
               </li>
             </ul>
           </div>
-          <div class="auth-instruction">Sign-up and sign-in in order to use the Bucket List Application!</div>
         </div>
       </nav>
       <!-- Nav Ends Here -->
@@ -138,26 +141,24 @@
           <div class="modal-content">
             <div class="modal-header">
               <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-              <h4 class="modal-title">Marker Information:</h4>
+              <h4 class="modal-title">Update Your Goal</h4>
             </div>
             <div class="modal-body">
               <div class='patch-goal-container'>
-                  <h4>If you'd like to update this goal, you have the option of updating its title and description below! Just click the 'Update Goal' button when you're done! Remember that all goals need a title in order to be submitted.</h4>
+                  <div class="well">If you'd like to update this goal, you have the option of updating its title and description below! Just click the 'Update Goal' button when you're done!</div>
                   <div class="patch-response-container">"There has been an error updating your goal! In order to update this goal, you need to include a title. You do not need to include a description, but a title is required."</div>
                   <form class="patch-goal-modal-form">
                     <label class="modal-goal-title">Goal title: </label><br>
                     <input class="click-title-field" type="text" name="goal[title]" placeholder="Enter your goal!"><br>
                     <label class="modal-goal-description">Description: </label><br>
-                    <input class="click-description-field" type="text" name="goal[description]" placeholder="Enter your description!"><br>
-                    <button type="submit" class="patch-goal" value="Click here to Patch this goal">
+                    <textarea class="click-description-field" type="text" name="goal[description]" placeholder="Enter your description!"></textarea><br>
+                    <button type="submit" class="btn btn-primary patch-goal" value="Click here to Patch this goal">
                       Update Goal</button>
+                      <button  class="delete-goal delete-goal-button btn btn-warning" value="Click here to Delete this goal">
+                        Delete Goal</button>
                   </form>
-                </div>
-                <div class='delete-goal-container'>
-                  <h4>If you'd like to delete this goal, just click the 'Delete Goal' button below.</h4>
                   <form class="delete-goal-modal-form">
-                    <button type="submit" class="delete-goal" value="Click here to Delete this goal">
-                      Delete Goal</button>
+
                   </form>
                 </div>
               </div>
@@ -169,18 +170,21 @@
             <div class="modal-content">
               <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title">Marker Information:</h4>
+                <h4 class="modal-title">Create Your Goal</h4>
               </div>
               <div class="modal-body">
                   <div class='post-goal-container'>
-                    <h4>In order to create a goal, enter the goal's relevant information below and click 'Create Goal'! Note: the 'title' field is required. A goal must have a title to be created. Goals do not require a description.</h4>
+                  <div class="well">
+Enter the goal's relevant information below and click 'Create Goal'!
+</div>
+
                     <div class="post-response-container">"There has been an error creating your goal! In order to create a goal, you need to include a title for the goal. You do not need to include a description, but a title is required"</div>
                     <form class="post-goal-modal-form">
                       <label class="modal-goal-title">Goal title:</label><br>
                       <input class="create-title-field" type="text" name="goal[title]" placeholder="Enter your goal!"><br>
                       <label class="modal-goal-description">Description: </label><br>
-                      <input class="create-description-field" type="text" name="goal[description]" placeholder="Enter your description!"><br>
-                      <button type="submit" class="post-goal" value="Click here to Post this goal">
+                      <textarea class="create-description-field" type="text" name="goal[description]" placeholder="Enter your description!"></textarea><br>
+                      <button type="submit" class="post-goal btn btn-success" value="Click here to Post this goal">
                         Create Goal</button>
                     </form>
                   </div>
